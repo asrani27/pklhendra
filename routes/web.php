@@ -10,6 +10,7 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\AdminKrkController;
+use App\Http\Controllers\AdminSPJController;
 use App\Http\Controllers\AdminBidangController;
 use App\Http\Controllers\TpermohonanController;
 use App\Http\Controllers\AdminBerandaController;
@@ -56,6 +57,17 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
         Route::post('data/koderek/edit/{id}', [AdminKoderekController::class, 'update']);
         Route::get('data/koderek/delete/{id}', [AdminKoderekController::class, 'delete']);
 
+        Route::get('transaksi/spj', [AdminSPJController::class, 'index']);
+        Route::get('transaksi/spj/add', [AdminSPJController::class, 'create']);
+        Route::post('transaksi/spj/add', [AdminSPJController::class, 'store']);
+        Route::get('transaksi/spj/edit/{id}', [AdminSPJController::class, 'edit']);
+        Route::post('transaksi/spj/edit/{id}', [AdminSPJController::class, 'update']);
+        Route::get('transaksi/spj/delete/{id}', [AdminSPJController::class, 'delete']);
+        Route::get('transaksi/spj/detail/{id}', [AdminSPJController::class, 'detail']);
+        Route::get('transaksi/spj/detail/delete/{id}', [AdminSPJController::class, 'deleteDetail']);
+
+        Route::get('transaksi/spj/adduraian/{id}', [AdminSPJController::class, 'adduraian']);
+        Route::post('transaksi/spj/adduraian/{id}', [AdminSPJController::class, 'storeuraian']);
         // Route::get('beranda/murni/buka', [AdminBerandaController::class, 'bukaMurni']);
         // Route::get('beranda/murni/tutup', [AdminBerandaController::class, 'tutupMurni']);
 
