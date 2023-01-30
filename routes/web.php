@@ -9,6 +9,7 @@ use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\BerandaController;
+use App\Http\Controllers\AdminBKUController;
 use App\Http\Controllers\AdminKrkController;
 use App\Http\Controllers\AdminSPJController;
 use App\Http\Controllers\AdminBidangController;
@@ -64,10 +65,20 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
         Route::post('transaksi/spj/edit/{id}', [AdminSPJController::class, 'update']);
         Route::get('transaksi/spj/delete/{id}', [AdminSPJController::class, 'delete']);
         Route::get('transaksi/spj/detail/{id}', [AdminSPJController::class, 'detail']);
+        Route::post('transaksi/spj/detail/simpan/angka', [AdminSPJController::class, 'storeDetail']);
         Route::get('transaksi/spj/detail/delete/{id}', [AdminSPJController::class, 'deleteDetail']);
 
         Route::get('transaksi/spj/adduraian/{id}', [AdminSPJController::class, 'adduraian']);
         Route::post('transaksi/spj/adduraian/{id}', [AdminSPJController::class, 'storeuraian']);
+
+        Route::get('transaksi/bku', [AdminBKUController::class, 'index']);
+        Route::get('transaksi/bku/add', [AdminBKUController::class, 'create']);
+        Route::post('transaksi/bku/add', [AdminBKUController::class, 'store']);
+        Route::get('transaksi/bku/edit/{id}', [AdminBKUController::class, 'edit']);
+        Route::post('transaksi/bku/edit/{id}', [AdminBKUController::class, 'update']);
+        Route::get('transaksi/bku/detail/{id}', [AdminBKUController::class, 'detail']);
+        Route::get('transaksi/bku/addrekening/{id}', [AdminBKUController::class, 'addRekening']);
+        Route::post('transaksi/bku/addrekening/{id}', [AdminBKUController::class, 'storeRekening']);
         // Route::get('beranda/murni/buka', [AdminBerandaController::class, 'bukaMurni']);
         // Route::get('beranda/murni/tutup', [AdminBerandaController::class, 'tutupMurni']);
 

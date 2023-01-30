@@ -48,6 +48,71 @@ class AdminSPJController extends Controller
         return view('admin.transaksi.spj.edit', compact('data'));
     }
 
+    public function storeDetail(Request $req)
+    {
+        $data = T_spj_detail::find($req->detail_id);
+        if ($req->kolom == 3) {
+            $data->ja = $req->angka;
+            $data->sisa = $data->ja - $data->jumlah;
+            $data->save();
+            Session::flash('success', 'Berhasil Diupdate');
+        }
+        if ($req->kolom == 4) {
+            $data->ls_gaji1 = $req->angka;
+            $data->ls_gaji3 = $data->ls_gaji1 + $data->ls_gaji2;
+            $data->jumlah = $data->ls_gaji3 + $data->ls_bj3 + $data->gu3;
+            $data->sisa = $data->ja - $data->jumlah;
+            $data->save();
+            Session::flash('success', 'Berhasil Diupdate');
+        }
+        if ($req->kolom == 5) {
+            $data->ls_gaji2 = $req->angka;
+            $data->ls_gaji3 = $data->ls_gaji1 + $data->ls_gaji2;
+            $data->jumlah = $data->ls_gaji3 + $data->ls_bj3 + $data->gu3;
+            $data->sisa = $data->ja - $data->jumlah;
+            $data->save();
+            Session::flash('success', 'Berhasil Diupdate');
+        }
+
+        if ($req->kolom == 7) {
+            $data->ls_bj1 = $req->angka;
+            $data->ls_bj3 = $data->ls_bj1 + $data->ls_bj2;
+            $data->jumlah = $data->ls_gaji3 + $data->ls_bj3 + $data->gu3;
+            $data->sisa = $data->ja - $data->jumlah;
+            $data->save();
+            Session::flash('success', 'Berhasil Diupdate');
+        }
+
+        if ($req->kolom == 8) {
+            $data->ls_bj2 = $req->angka;
+            $data->ls_bj3 = $data->ls_bj1 + $data->ls_bj2;
+            $data->jumlah = $data->ls_gaji3 + $data->ls_bj3 + $data->gu3;
+            $data->sisa = $data->ja - $data->jumlah;
+            $data->save();
+            Session::flash('success', 'Berhasil Diupdate');
+        }
+
+        if ($req->kolom == 10) {
+            $data->gu1 = $req->angka;
+            $data->gu3 = $data->gu1 + $data->gu2;
+            $data->jumlah = $data->ls_gaji3 + $data->ls_bj3 + $data->gu3;
+            $data->sisa = $data->ja - $data->jumlah;
+            $data->save();
+            Session::flash('success', 'Berhasil Diupdate');
+        }
+
+        if ($req->kolom == 11) {
+            $data->gu2 = $req->angka;
+            $data->gu3 = $data->gu1 + $data->gu2;
+            $data->jumlah = $data->ls_gaji3 + $data->ls_bj3 + $data->gu3;
+            $data->sisa = $data->ja - $data->jumlah;
+            $data->save();
+            Session::flash('success', 'Berhasil Diupdate');
+        }
+
+        return back();
+        dd($req->all());
+    }
     public function detail($id)
     {
         $data = T_spj::find($id);

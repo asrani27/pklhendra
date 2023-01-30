@@ -66,41 +66,48 @@
                         class="btn btn-xs btn-flat"><i class="fa fa-trash"></i></a>
                       </td>
                     <td>{{$item->koderek->uraian}}</td>
-                    <td>
-                      <a href="#" class="isiangka" data-id="{{$item->id}}" data-angka="{{$item->ja}}">{{$item->ja}}</a>
+                    <td style="text-align: right">
+                      <a href="#" class="isiangka" data-id="{{$item->id}}" data-angka="{{$item->ja}}" data-kolom="3">{{number_format($item->ja)}}</a>
                     </td>
-                    <td>
-                      {{$item->ls_gaji1}}
+                    <td style="text-align: right">
+                      <a href="#" class="isiangka" data-id="{{$item->id}}" data-angka="{{$item->ls_gaji1}}" data-kolom="4">{{number_format($item->ls_gaji1)}}</a>
                     </td>
-                    <td>
-                      {{$item->ls_gaji2}}
+                    <td style="text-align: right">
+                      <a href="#" class="isiangka" data-id="{{$item->id}}" data-angka="{{$item->ls_gaji2}}" data-kolom="5">{{number_format($item->ls_gaji2)}}</a>
+                      
                     </td>
-                    <td>
-                      {{$item->ls_gaji3}}
+                    <td style="text-align: right">
+                      {{number_format($item->ls_gaji1 + $item->ls_gaji2)}}
+                      
                     </td>
-                    <td>
-                      {{$item->ls_bj1}}
+                    <td style="text-align: right">
+                      <a href="#" class="isiangka" data-id="{{$item->id}}" data-angka="{{$item->ls_bj1}}" data-kolom="7">{{number_format($item->ls_bj1)}}</a>
+                      
                     </td>
-                    <td>
-                      {{$item->ls_bj2}}
+                    <td style="text-align: right">
+                      <a href="#" class="isiangka" data-id="{{$item->id}}" data-angka="{{$item->ls_bj2}}" data-kolom="8">{{number_format($item->ls_bj2)}}</a>
+                      
                     </td>
-                    <td>
-                      {{$item->ls_bj3}}
+                    <td style="text-align: right">
+                      {{number_format($item->ls_bj1 + $item->ls_bj2)}}
                     </td>
-                    <td>
-                      {{$item->gu1}}
+                    <td style="text-align: right">
+                      <a href="#" class="isiangka" data-id="{{$item->id}}" data-angka="{{$item->gu1}}" data-kolom="10">{{number_format($item->gu1)}}</a>
+                    
                     </td>
-                    <td>
-                      {{$item->gu2}}
+                    <td style="text-align: right">
+                      <a href="#" class="isiangka" data-id="{{$item->id}}" data-angka="{{$item->gu2}}" data-kolom="11">{{number_format($item->gu2)}}</a>
+                     
                     </td>
-                    <td>
-                      {{$item->gu3}}
+                    <td style="text-align: right">
+                      {{number_format($item->gu1 + $item->gu2)}}
+                    
                     </td>
-                    <td>
-                      {{$item->jumlah}}
+                    <td style="text-align: right">
+                      {{number_format($item->jumlah)}}
                     </td>
-                    <td>
-                      {{$item->sisa}}
+                    <td style="text-align: right">
+                      {{number_format($item->sisa)}}
                     </td>
                     {{-- <td>
                       <a href="/admin/transaksi/spj/detail/{{$item->id}}" class="btn btn-xs btn-flat  btn-success">detail</a>
@@ -128,14 +135,15 @@
               <span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title"><i class="ion ion-clipboard"></i> Angka</h4>
           </div>
-          <form method="post" action="/bidang/realisasifisik">
+          <form method="post" action="/admin/transaksi/spj/detail/simpan/angka">
           <div class="modal-body">
               @csrf
               
               <div class="form-group">
                   <label>Angka</label>
-                  <input type="text" id="angka" class="form-control" name="angka" readonly>
-                  <input type="text" id="detail_id" class="form-control" name="idd" readonly>
+                  <input type="text" id="angka" class="form-control" name="angka">
+                  <input type="hidden" id="kolom" class="form-control" name="kolom">
+                  <input type="hidden" id="detail_id" class="form-control" name="detail_id" readonly>
               </div>
               
           </div>
@@ -159,6 +167,7 @@
   $(document).on('click', '.isiangka', function() {
   $('#detail_id').val($(this).data('id'));
   $('#angka').val($(this).data('angka'));
+  $('#kolom').val($(this).data('kolom'));
   $("#modal-editangka").modal();
 });
 </script>
