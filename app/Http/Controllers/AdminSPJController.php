@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\M_koderek;
 use App\Models\T_spj;
 use App\Models\T_spj_detail;
+use App\Models\T_spj_penerimaan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -37,7 +38,41 @@ class AdminSPJController extends Controller
 
     public function store(Request $req)
     {
-        T_spj::create($req->all());
+
+        $spj = T_spj::create($req->all());
+
+        $n = 8;
+        for ($i = 1; $i <= $n; $i++) {
+            $p = new T_spj_penerimaan;
+            $p->t_spj_id = $spj->id;
+            if ($i == 1) {
+                $p->jenis = 'sp2d';
+            }
+            if ($i == 2) {
+                $p->jenis = 'pp';
+            }
+            if ($i == 3) {
+                $p->jenis = 'ppn';
+            }
+            if ($i == 4) {
+                $p->jenis = 'pph21';
+            }
+            if ($i == 5) {
+                $p->jenis = 'pph22';
+            }
+            if ($i == 6) {
+                $p->jenis = 'pph23';
+            }
+            if ($i == 7) {
+                $p->jenis = 'pph4';
+            }
+            if ($i == 8) {
+                $p->jenis = 'lain';
+            }
+            $p->save();
+        }
+
+
         Session::flash('success', 'Berhasil DiSimpan');
         return redirect('/admin/transaksi/spj');
     }
@@ -116,7 +151,8 @@ class AdminSPJController extends Controller
     public function detail($id)
     {
         $data = T_spj::find($id);
-        return view('admin.transaksi.spj.detail', compact('data'));
+        $detail = $data->detail;
+        return view('admin.transaksi.spj.detail', compact('data', 'id', 'detail'));
     }
 
     public function deleteDetail($id)

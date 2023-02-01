@@ -18,7 +18,7 @@
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">Tanggal</label>
                   <div class="col-sm-10">
-                    <input type="date" name="tanggal" class="form-control" required>
+                    <input type="date" name="tanggal" class="form-control">
                   </div>  
                 </div>
                 <div class="form-group">
@@ -36,7 +36,7 @@
                   <label for="inputEmail3" class="col-sm-2 control-label"></label>
                   <div class="col-sm-10">
                     <button type="submit" class="btn btn-primary btn-flat btn-block"><i class="fa fa-send"></i> Simpan</button>
-                    <a href="/admin/transaksi/bku/detail/{{$id}}" class="btn bg-gray btn-flat btn-block"><i class="fa fa-arrow-left"></i> Kembali</a>
+                    <a href="/admin/transaksi/detail/{{$id}}/bku" class="btn bg-gray btn-flat btn-block"><i class="fa fa-arrow-left"></i> Kembali</a>
                   </div>
                 </div>
               </div>

@@ -16,4 +16,9 @@ class T_bku_rekening extends Model
     {
         return $this->belongsTo(M_koderek::class, 'm_koderek_id');
     }
+
+    public function detailRekening()
+    {
+        return $this->hasMany(T_bku_rekening_detail::class, 't_bku_rekening_id');
+    }
 }

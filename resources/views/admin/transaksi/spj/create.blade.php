@@ -52,9 +52,21 @@
                   </div>
                 </div>
                 <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">NIP PPTK</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" name="nip_pptk">
+                  </div>
+                </div>
+                <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">PPTK</label>
                   <div class="col-sm-10">
                     <input type="text" class="form-control" name="pptk">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">NIP Pengguna Anggaran</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" name="nip_pengguna">
                   </div>
                 </div>
                 <div class="form-group">

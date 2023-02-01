@@ -6,13 +6,16 @@
 <section class="content">
     <div class="row">
         <div class="col-xs-12">
+          @include('admin.transaksi.menu')
+          <br/>
+          <br/>
           <div class="box box-primary">
             <div class="box-header">
-              <h3 class="box-title"><i class="fa fa-clipboard"></i> Detail SPJ</h3>
+              <h3 class="box-title"><i class="fa fa-clipboard"></i> DETAIL SPJ</h3>
     
               <div class="box-tools">
                 <a href="/admin/transaksi/spj/adduraian/{{$data->id}}" class="btn btn-sm btn-primary btn-flat"><i class="fa fa-plus-circle"></i> Uraian</a>
-                <a href="/admin/transaksi/spj" class="btn btn-sm btn-danger btn-flat"><i class="fa fa-arrow-left"></i> Kembali</a>
+                <a href="/admin/transaksi/spj/pdf/{{$id}}" class="btn btn-sm btn-danger btn-flat"><i class="fa fa-file"></i> PDF</a>
               </div>
             </div>
             <!-- /.box-header -->
@@ -41,7 +44,7 @@
                   <th class="text-center">Bulan ini</th>
                   <th class="text-center">s.d. Bln ini</th>
                 </tr>
-                <tr style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:8px;background-color:silver">
+                <tr style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:6px;background-color:silver">
                 
                   <th class="text-center">1</th>
                   <th class="text-center">2</th>
@@ -54,7 +57,7 @@
                   <th class="text-center">9 = (7+8)</th>
                   <th class="text-center">10</th>
                   <th class="text-center">11</th>
-                  <th class="text-center">12 = (10+11)</th>
+                  <th class="text-center">12=(10+11)</th>
                   <th class="text-center">13 = (6+9+12)</th>
                   <th class="text-center">14 = (3-13)</th>
                 </tr>
@@ -118,7 +121,182 @@
                     </td> --}}
                 </tr>
                 @endforeach
-                
+                <tr style="font-size: 10px">
+                  <td></td>
+                  <td>JUMLAH</td>
+                  <td style="text-align: right">{{number_format($detail->sum('ja'))}}</td>
+                  <td style="text-align: right">{{number_format($detail->sum('ls_gaji1'))}}</td>
+                  <td style="text-align: right">{{number_format($detail->sum('ls_gaji2'))}}</td>
+                  <td style="text-align: right">{{number_format($detail->sum('ls_gaji3'))}}</td>
+                  <td style="text-align: right">{{number_format($detail->sum('ls_bj1'))}}</td>
+                  <td style="text-align: right">{{number_format($detail->sum('ls_bj2'))}}</td>
+                  <td style="text-align: right">{{number_format($detail->sum('ls_bj3'))}}</td>
+                  <td style="text-align: right">{{number_format($detail->sum('gu1'))}}</td>
+                  <td style="text-align: right">{{number_format($detail->sum('gu2'))}}</td>
+                  <td style="text-align: right">{{number_format($detail->sum('gu3'))}}</td>
+                  <td style="text-align: right">{{number_format($detail->sum('jumlah'))}}</td>
+                  <td style="text-align: right">{{number_format($detail->sum('sisa'))}}</td>
+                </tr>
+                <tr style="font-size: 10px">
+                  <td></td>
+                  <td>PENERIMAAN</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr style="font-size: 10px">
+                  <td></td>
+                  <td>&nbsp;&nbsp;&nbsp;- SP2D</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr style="font-size: 10px">
+                  <td></td>
+                  <td>&nbsp;&nbsp;&nbsp;- Potongan Pajak</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr style="font-size: 10px">
+                  <td></td>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. PPN</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr style="font-size: 10px">
+                  <td></td>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b. PPh - 21</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr style="font-size: 10px">
+                  <td></td>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c. PPh - 22</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr style="font-size: 10px">
+                  <td></td>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d. PPh - 23</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr style="font-size: 10px">
+                  <td></td>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d. PPh Pasal 4 Ayat 2</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr style="font-size: 10px">
+                  <td></td>
+                  <td>&nbsp;&nbsp;&nbsp;- Lain-lain</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr style="font-size: 10px">
+                  <td></td>
+                  <td>JUMLAH PENERIMAAN</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
               </tbody></table>
             </div>
             <!-- /.box-body -->

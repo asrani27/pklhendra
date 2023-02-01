@@ -8,7 +8,7 @@
         <div class="col-xs-12">
           <div class="box box-primary">
             <div class="box-header">
-              <h3 class="box-title"><i class="fa fa-clipboard"></i> Data SPJ</h3>
+              <h3 class="box-title"><i class="fa fa-clipboard"></i> Data Transaksi</h3>
     
               <div class="box-tools">
                 <a href="/admin/transaksi/spj/add" class="btn btn-sm btn-primary btn-flat "><i class="fa fa-plus-circle"></i> Tambah SPJ</a>
@@ -27,14 +27,14 @@
                   <th>Aksi</th>
                 </tr>
                 @foreach ($data as $key => $item)
-                <tr>
+                <tr style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:10px;">
                     <td class="text-center">{{$data->firstItem() + $key}}</td>
                     <td>{{$item->bulan}} {{$item->tahun}}</td>
                     <td>{{$item->subkegiatan}}</td>
-                    <td>{{$item->pptk}}</td>
-                    <td>{{$item->pengguna}}</td>
+                    <td>{{$item->pptk}}<br/>{{$item->nip_pptk}}</td>
+                    <td>{{$item->pengguna}}<br/>{{$item->nip_pengguna}}</td>
                     <td>
-                      <a href="/admin/transaksi/spj/detail/{{$item->id}}" class="btn btn-xs btn-flat  btn-success">detail</a>
+                      <a href="/admin/transaksi/detail/{{$item->id}}" class="btn btn-xs btn-flat  btn-success">Transaksi</a>
                         <a href="/admin/transaksi/spj/edit/{{$item->id}}" class="btn btn-xs btn-flat  btn-success"><i class="fa fa-edit"></i></a>
                         <a href="/admin/transaksi/spj/delete/{{$item->id}}"
                             onclick="return confirm('Yakin ingin di hapus');"
