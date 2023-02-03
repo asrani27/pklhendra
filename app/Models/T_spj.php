@@ -15,4 +15,8 @@ class T_spj extends Model
     {
         return $this->hasMany(T_spj_detail::class, 't_spj_id');
     }
+    public function penerimaan()
+    {
+        return $this->hasMany(T_spj_penerimaan::class, 't_spj_id');
+    }
 }

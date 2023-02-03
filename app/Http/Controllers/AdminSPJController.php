@@ -14,6 +14,7 @@ class AdminSPJController extends Controller
     public function index()
     {
         $data = T_spj::paginate(15);
+
         return view('admin.transaksi.spj.index', compact('data'));
     }
     public function create()
@@ -146,13 +147,21 @@ class AdminSPJController extends Controller
         }
 
         return back();
-        dd($req->all());
     }
     public function detail($id)
     {
         $data = T_spj::find($id);
         $detail = $data->detail;
-        return view('admin.transaksi.spj.detail', compact('data', 'id', 'detail'));
+        $penerimaan = $data->penerimaan;
+        $sp2d = $penerimaan->where('jenis', 'sp2d')->first();
+        $pp = $penerimaan->where('jenis', 'pp')->first();
+        $ppn = $penerimaan->where('jenis', 'ppn')->first();
+        $pph21 = $penerimaan->where('jenis', 'pph21')->first();
+        $pph22 = $penerimaan->where('jenis', 'pph22')->first();
+        $pph23 = $penerimaan->where('jenis', 'pph23')->first();
+        $pph4 = $penerimaan->where('jenis', 'pph4')->first();
+        $lain = $penerimaan->where('jenis', 'lain')->first();
+        return view('admin.transaksi.spj.detail', compact('data', 'id', 'detail', 'penerimaan', 'sp2d', 'pp', 'ppn', 'pph21', 'pph22', 'pph23', 'pph4', 'lain'));
     }
 
     public function deleteDetail($id)

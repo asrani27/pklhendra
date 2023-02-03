@@ -157,145 +157,145 @@
                   <td></td>
                   <td>&nbsp;&nbsp;&nbsp;- SP2D</td>
                   <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td style="text-align: right">{{$sp2d->ls_gaji1}}</td>
+                  <td style="text-align: right">{{$sp2d->ls_gaji2}}</td>
+                  <td style="text-align: right">{{$sp2d->ls_gaji3}}</td>
+                  <td style="text-align: right">{{$sp2d->ls_bj1}}</td>
+                  <td style="text-align: right">{{$sp2d->ls_bj2}}</td>
+                  <td style="text-align: right">{{$sp2d->ls_bj3}}</td>
+                  <td style="text-align: right">{{$sp2d->gu1}}</td>
+                  <td style="text-align: right">{{$sp2d->gu2}}</td>
+                  <td style="text-align: right">{{$sp2d->gu3}}</td>
+                  <td style="text-align: right">{{$sp2d->jumlah}}</td>
+                  <td style="text-align: right"></td>
                 </tr>
                 <tr style="font-size: 10px">
                   <td></td>
                   <td>&nbsp;&nbsp;&nbsp;- Potongan Pajak</td>
                   <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td style="text-align: right">{{$pp->ls_gaji1}}</td>
+                  <td style="text-align: right">{{$pp->ls_gaji2}}</td>
+                  <td style="text-align: right">{{$pp->ls_gaji3}}</td>
+                  <td style="text-align: right">{{$pp->ls_bj1}}</td>
+                  <td style="text-align: right">{{$pp->ls_bj2}}</td>
+                  <td style="text-align: right">{{$pp->ls_bj3}}</td>
+                  <td style="text-align: right">{{$pp->gu1}}</td>
+                  <td style="text-align: right">{{$pp->gu2}}</td>
+                  <td style="text-align: right">{{$pp->gu3}}</td>
+                  <td style="text-align: right">{{$pp->jumlah}}</td>
+                  <td style="text-align: right"></td>
                 </tr>
                 <tr style="font-size: 10px">
                   <td></td>
                   <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. PPN</td>
                   <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td style="text-align: right">{{$ppn->ls_gaji1}}</td>
+                  <td style="text-align: right">{{$ppn->ls_gaji2}}</td>
+                  <td style="text-align: right">{{$ppn->ls_gaji3}}</td>
+                  <td style="text-align: right">{{$ppn->ls_bj1}}</td>
+                  <td style="text-align: right">{{$ppn->ls_bj2}}</td>
+                  <td style="text-align: right">{{$ppn->ls_bj3}}</td>
+                  <td style="text-align: right">{{$ppn->gu1}}</td>
+                  <td style="text-align: right">{{$ppn->gu2}}</td>
+                  <td style="text-align: right">{{$ppn->gu3}}</td>
+                  <td style="text-align: right">{{$ppn->jumlah}}</td>
+                  <td style="text-align: right"></td>
                 </tr>
                 <tr style="font-size: 10px">
                   <td></td>
                   <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b. PPh - 21</td>
                   <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td style="text-align: right">{{$pph21->ls_gaji1}}</td>
+                  <td style="text-align: right">{{$pph21->ls_gaji2}}</td>
+                  <td style="text-align: right">{{$pph21->ls_gaji3}}</td>
+                  <td style="text-align: right">{{$pph21->ls_bj1}}</td>
+                  <td style="text-align: right">{{$pph21->ls_bj2}}</td>
+                  <td style="text-align: right">{{$pph21->ls_bj3}}</td>
+                  <td style="text-align: right">{{$pph21->gu1}}</td>
+                  <td style="text-align: right">{{$pph21->gu2}}</td>
+                  <td style="text-align: right">{{$pph21->gu3}}</td>
+                  <td style="text-align: right">{{$pph21->jumlah}}</td>
+                  <td style="text-align: right"></td>
                 </tr>
                 <tr style="font-size: 10px">
                   <td></td>
                   <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c. PPh - 22</td>
                   <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td style="text-align: right">{{$pph22->ls_gaji1}}</td>
+                  <td style="text-align: right">{{$pph22->ls_gaji2}}</td>
+                  <td style="text-align: right">{{$pph22->ls_gaji3}}</td>
+                  <td style="text-align: right">{{$pph22->ls_bj1}}</td>
+                  <td style="text-align: right">{{$pph22->ls_bj2}}</td>
+                  <td style="text-align: right">{{$pph22->ls_bj3}}</td>
+                  <td style="text-align: right">{{$pph22->gu1}}</td>
+                  <td style="text-align: right">{{$pph22->gu2}}</td>
+                  <td style="text-align: right">{{$pph22->gu3}}</td>
+                  <td style="text-align: right">{{$pph22->jumlah}}</td>
+                  <td style="text-align: right"></td>
                 </tr>
                 <tr style="font-size: 10px">
                   <td></td>
                   <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d. PPh - 23</td>
                   <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td style="text-align: right">{{$pph23->ls_gaji1}}</td>
+                  <td style="text-align: right">{{$pph23->ls_gaji2}}</td>
+                  <td style="text-align: right">{{$pph23->ls_gaji3}}</td>
+                  <td style="text-align: right">{{$pph23->ls_bj1}}</td>
+                  <td style="text-align: right">{{$pph23->ls_bj2}}</td>
+                  <td style="text-align: right">{{$pph23->ls_bj3}}</td>
+                  <td style="text-align: right">{{$pph23->gu1}}</td>
+                  <td style="text-align: right">{{$pph23->gu2}}</td>
+                  <td style="text-align: right">{{$pph23->gu3}}</td>
+                  <td style="text-align: right">{{$pph23->jumlah}}</td>
+                  <td style="text-align: right"></td>
                 </tr>
                 <tr style="font-size: 10px">
                   <td></td>
                   <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d. PPh Pasal 4 Ayat 2</td>
                   <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td style="text-align: right">{{$pph4->ls_gaji1}}</td>
+                  <td style="text-align: right">{{$pph4->ls_gaji2}}</td>
+                  <td style="text-align: right">{{$pph4->ls_gaji3}}</td>
+                  <td style="text-align: right">{{$pph4->ls_bj1}}</td>
+                  <td style="text-align: right">{{$pph4->ls_bj2}}</td>
+                  <td style="text-align: right">{{$pph4->ls_bj3}}</td>
+                  <td style="text-align: right">{{$pph4->gu1}}</td>
+                  <td style="text-align: right">{{$pph4->gu2}}</td>
+                  <td style="text-align: right">{{$pph4->gu3}}</td>
+                  <td style="text-align: right">{{$pph4->jumlah}}</td>
+                  <td style="text-align: right"></td>
                 </tr>
                 <tr style="font-size: 10px">
                   <td></td>
                   <td>&nbsp;&nbsp;&nbsp;- Lain-lain</td>
                   <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td style="text-align: right">{{$lain->ls_gaji1}}</td>
+                  <td style="text-align: right">{{$lain->ls_gaji2}}</td>
+                  <td style="text-align: right">{{$lain->ls_gaji3}}</td>
+                  <td style="text-align: right">{{$lain->ls_bj1}}</td>
+                  <td style="text-align: right">{{$lain->ls_bj2}}</td>
+                  <td style="text-align: right">{{$lain->ls_bj3}}</td>
+                  <td style="text-align: right">{{$lain->gu1}}</td>
+                  <td style="text-align: right">{{$lain->gu2}}</td>
+                  <td style="text-align: right">{{$lain->gu3}}</td>
+                  <td style="text-align: right">{{$lain->jumlah}}</td>
+                  <td style="text-align: right"></td>
                 </tr>
                 <tr style="font-size: 10px">
                   <td></td>
                   <td>JUMLAH PENERIMAAN</td>
                   <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td style="text-align: right">{{$penerimaan->sum('ls_gaji1')}}</td>
+                  <td style="text-align: right">{{$penerimaan->sum('ls_gaji2')}}</td>
+                  <td style="text-align: right">{{$penerimaan->sum('ls_gaji3')}}</td>
+                  <td style="text-align: right">{{$penerimaan->sum('ls_bj1')}}</td>
+                  <td style="text-align: right">{{$penerimaan->sum('ls_bj2')}}</td>
+                  <td style="text-align: right">{{$penerimaan->sum('ls_bj3')}}</td>
+                  <td style="text-align: right">{{$penerimaan->sum('gu1')}}</td>
+                  <td style="text-align: right">{{$penerimaan->sum('gu2')}}</td>
+                  <td style="text-align: right">{{$penerimaan->sum('gu3')}}</td>
+                  <td style="text-align: right">{{$penerimaan->sum('jumlah')}}</td>
+                  <td style="text-align: right"></td>
                 </tr>
               </tbody></table>
             </div>
