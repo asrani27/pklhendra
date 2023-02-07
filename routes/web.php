@@ -86,6 +86,8 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
         Route::get('transaksi/sptjb/edit/{id}', [AdminSPTJBController::class, 'edit']);
         Route::post('transaksi/sptjb/edit/{id}', [AdminSPTJBController::class, 'update']);
 
+        Route::post('transaksi/sptjb/penerima/{id}', [AdminSPTJBController::class, 'penerima']);
+
         Route::get('transaksi/spj/adduraian/{id}', [AdminSPJController::class, 'adduraian']);
         Route::post('transaksi/spj/adduraian/{id}', [AdminSPJController::class, 'storeuraian']);
 
