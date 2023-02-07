@@ -65,9 +65,9 @@
                 </div>
                 
                 <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label">Sub Kegiatan</label>
+                  <label for="inputEmail3" class="col-sm-2 control-label">Kode Sub Kegiatan</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" value="{{$data->kode_subkegiatan}}" name="subkegiatan">
+                    <input type="text" class="form-control" value="{{$data->kode_subkegiatan}}" name="kode_subkegiatan">
                   </div>
                 </div>
                 <div class="form-group">

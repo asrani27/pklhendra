@@ -15,6 +15,7 @@ use App\Http\Controllers\AdminKrkController;
 use App\Http\Controllers\AdminNPDController;
 use App\Http\Controllers\AdminSPJController;
 use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\AdminSPTJBController;
 use App\Http\Controllers\AdminBidangController;
 use App\Http\Controllers\TpermohonanController;
 use App\Http\Controllers\AdminBerandaController;
