@@ -23,32 +23,32 @@
       <tr>
         <td>SATUAN KERJA</td>
         <td>:</td>
-        <td>'2.16.2.20.2.21.02.0000 DINAS KOMUNIKASI, INFORMATIKA DAN STATISTIK KOTA BANJARMASIN</td>
+        <td>{{$ttd->kode_skpd}} {{$ttd->skpd}}</td>
       </tr>
       <tr>
         <td>KODE SATUAN KERJA</td>
         <td>:</td>
-        <td>2.16.2.20.2.21.02.0000</td>
+        <td>{{$ttd->kode_skpd}}</td>
       </tr>
       <tr>
         <td>TANGGAL/ NO. DPA</td>
         <td>:</td>
-        <td>14 Oktober 2022 /DPPA/B.1/2.16.2.20.2.21.02.0000/001/2022</td>
+        <td>{{\Carbon\Carbon::parse($ttd->tanggal)->translatedFormat('d F Y')}} {{$ttd->no_dpa}}</td>
       </tr>
       <tr>
         <td>PROGRAM</td>
         <td>:</td>
-        <td>2.16.03 PROGRAM APLIKASI INFORMATIKA</td>
+        <td>{{$ttd->kode_program}} {{$ttd->program}}</td>
       </tr>
       <tr>
         <td>KEGIATAN</td>
         <td>:</td>
-        <td>2.16.03.2.02 Pengelolaan e-government Di Lingkup Pemerintah Daerah Kabupaten/Kota</td>
+        <td>{{$ttd->kode_kegiatan}} {{$ttd->kegiatan}}</td>
       </tr>
       <tr>
         <td>SUB KEGIATAN</td>
         <td>:</td>
-        <td>2.16.03.2.02.07 Pengembangan Aplikasi dan Proses Bisnis Pemerintahan Berbasis Elektronik</td>
+        <td>{{$ttd->kode_subkegiatan}} {{$ttd->subkegiatan}}</td>
       </tr>
       <tr>
         <td>TAHUN ANGGARAN</td>
