@@ -14,12 +14,18 @@
                 <i class="fa fa-text-width"></i>
   
                 <h3 class="box-title">NPD</h3>
+
+              <div class="box-tools">
+                
+                
+                <a href="/admin/transaksi/npd/edit/{{$id}}" class="btn btn-sm btn-primary btn-flat"><i class="fa fa-edit"></i> EDIT</a>
+              </div>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
                 <dl class="dl-horizontal">
                   <dt>Nomor NPD</dt>
-                  <dd>{{$data->no_npd}}</dd>
+                  <dd>{{$data->nomor_npd}}</dd>
                   <dt>PPTK</dt>
                   <dd>{{$data->pptk}}</dd>
                   
@@ -32,7 +38,7 @@
                   <dd>{{$data->subkegiatan}}
                   </dd>
                   <dt>No. DPA</dt>
-                  <dd>{{$data->no_dpa}}
+                  <dd>{{$data->no_dpa}}, {{\Carbon\Carbon::parse($data->tanggal)->translatedFormat('d F Y')}}
                   </dd>
                   <dt>Tahun Anggaran</dt>
                   <dd>{{$data->tahun}}

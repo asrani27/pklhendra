@@ -14,7 +14,8 @@
             <td colspan=7 style="font-family: Arial, Helvetica, sans-serif;font-size:12px;font-weight:bold; text-align:center">
               NOTA PENCAIRAN DANA (NPD)
                 <br/>
-                Nomor<br/><br/>
+                Nomor : 
+                {{$data->nomor_npd}}<br/><br/>
             </td>
         </tr>
         
@@ -28,7 +29,7 @@
           <td>SKPD</td>
           <td></td>
           <td>:</td>
-          <td>2.16.2.20.2.21.02.0000  Dinas Komunikasi, Informatika dan Statistik Kota Banjarmasin</td>
+          <td>{{$data->kode_skpd}}  {{$data->skpd}}</td>
       </tr>
       <tr>
           <td colspan="4">Supaya mencairkan dana kepada</td>
@@ -43,13 +44,13 @@
           <td>2.</td>
           <td>Program</td>
           <td>:</td>
-          <td>2.16.03 PROGRAM APLIKASI INFORMATIKA</td>
+          <td>{{$data->kode_program}} {{$data->program}}</td>
       </tr>
       <tr>
           <td>3.</td>
           <td>Kegiatan</td>
           <td>:</td>
-          <td>2.16.03.2.02 Pengelolaan e-government Di Lingkup Pemerintah Daerah Kabupaten/Kota</td>
+          <td>{{$data->kode_kegiatan}} {{$data->kegiatan}}</td>
       </tr>
       <tr>
           <td>4.</td>
@@ -61,7 +62,7 @@
           <td>5.</td>
           <td>No.DPA/DPAL/DPPA-SKPD</td>
           <td>:</td>
-          <td>DPPA/B.1/2.16.2.20.2.21.02.0000/001/2022, 14 Oktober 2022</td>
+          <td>{{$data->no_dpa}} {{$data->tanggal}}</td>
       </tr>
       <tr>
           <td>6.</td>

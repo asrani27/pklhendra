@@ -12,6 +12,7 @@ use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\AdminBKUController;
 use App\Http\Controllers\AdminKrkController;
+use App\Http\Controllers\AdminNPDController;
 use App\Http\Controllers\AdminSPJController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\AdminBidangController;
@@ -77,6 +78,12 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
         Route::get('transaksi/spj/detail/{id}', [AdminSPJController::class, 'detail']);
         Route::post('transaksi/spj/detail/simpan/angka', [AdminSPJController::class, 'storeDetail']);
         Route::get('transaksi/spj/detail/delete/{id}', [AdminSPJController::class, 'deleteDetail']);
+
+        Route::get('transaksi/npd/edit/{id}', [AdminNPDController::class, 'edit']);
+        Route::post('transaksi/npd/edit/{id}', [AdminNPDController::class, 'update']);
+
+        Route::get('transaksi/sptjb/edit/{id}', [AdminSPTJBController::class, 'edit']);
+        Route::post('transaksi/sptjb/edit/{id}', [AdminSPTJBController::class, 'update']);
 
         Route::get('transaksi/spj/adduraian/{id}', [AdminSPJController::class, 'adduraian']);
         Route::post('transaksi/spj/adduraian/{id}', [AdminSPJController::class, 'storeuraian']);

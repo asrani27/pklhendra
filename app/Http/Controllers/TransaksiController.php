@@ -52,8 +52,9 @@ class TransaksiController extends Controller
     }
     public function sptjb($id)
     {
+        $ttd = T_spj::find($id);
         $data = T_bku_rekening_detail::where('t_spj_id', $id)->where('pajak', 0)->get();
-        return view('admin.transaksi.sptjb.index', compact('id', 'data'));
+        return view('admin.transaksi.sptjb.index', compact('id', 'data', 'ttd'));
     }
     public function kuitansisatu($id)
     {

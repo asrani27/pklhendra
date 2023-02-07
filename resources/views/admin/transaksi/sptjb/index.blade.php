@@ -9,6 +9,47 @@
           @include('admin.transaksi.menu')
           <br/>
           <br/>
+
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <i class="fa fa-text-width"></i>
+
+              <h3 class="box-title">SPTJB</h3>
+
+            <div class="box-tools">
+              
+              
+              <a href="/admin/transaksi/sptjb/edit/{{$id}}" class="btn btn-sm btn-primary btn-flat"><i class="fa fa-edit"></i> EDIT</a>
+            </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <dl class="dl-horizontal">
+                <dt>SATUAN KERJA</dt>
+                <dd>{{$ttd->skpd}}</dd>
+                
+                <dt>KODE SATUAN KERJA</dt>
+                <dd>{{$ttd->kode_skpd}}</dd>
+                <dt>TANGGAL/NO.DPA</dt>
+                <dd>{{$ttd->tanggal}} / {{$ttd->no_dpa}}
+                </dd>
+                <dt>PROGRAM</dt>
+                <dd>{{$ttd->kode_program}} {{$ttd->program}}
+                </dd>
+                <dt>KEGIATAN</dt>
+                <dd>{{$ttd->kode_kegiatan}} {{$ttd->kegiatan}}
+                </dd>
+                <dt>SUB KEGIATAN</dt>
+                <dd>{{$ttd->kode_subkegiatan}} {{$ttd->subkegiatan}}
+                </dd>
+                <dt>TAHUN ANGGARAN</dt>
+                <dd>{{$ttd->tahun}}
+                </dd>
+              </dl>
+            </div>
+            <!-- /.box-body -->
+          </div>
+
           <div class="box box-primary">
             <div class="box-header">
               <h3 class="box-title"><i class="fa fa-clipboard"></i> SPTJB</h3>
