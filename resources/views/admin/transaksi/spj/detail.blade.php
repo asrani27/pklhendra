@@ -15,7 +15,7 @@
     
               <div class="box-tools">
                 <a href="/admin/transaksi/spj/adduraian/{{$data->id}}" class="btn btn-sm btn-primary btn-flat"><i class="fa fa-plus-circle"></i> Uraian</a>
-                <a href="/admin/transaksi/spj/pdf/{{$id}}" class="btn btn-sm btn-danger btn-flat"><i class="fa fa-file"></i> PDF</a>
+                <a href="/admin/transaksi/spj/print/{{$id}}" class="btn btn-sm btn-danger btn-flat" target="_blank"><i class="fa fa-file"></i> PRINT</a>
               </div>
             </div>
             <!-- /.box-header -->

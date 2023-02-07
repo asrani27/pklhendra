@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TkrkController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PrintController;
 use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ProfilController;
@@ -79,6 +80,12 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
 
         Route::get('transaksi/spj/adduraian/{id}', [AdminSPJController::class, 'adduraian']);
         Route::post('transaksi/spj/adduraian/{id}', [AdminSPJController::class, 'storeuraian']);
+
+        Route::get('transaksi/spj/print/{id}', [PrintController::class, 'spj']);
+        Route::get('transaksi/bku/print/{id}', [PrintController::class, 'bku']);
+        Route::get('transaksi/npd/print/{id}', [PrintController::class, 'npd']);
+        Route::get('transaksi/sptjb/print/{id}', [PrintController::class, 'sptjb']);
+        Route::get('transaksi/kuitansi11/print/{id}', [PrintController::class, 'kuitansi11']);
 
         Route::get('transaksi/bku', [AdminBKUController::class, 'index']);
         Route::get('transaksi/bku/add', [AdminBKUController::class, 'create']);

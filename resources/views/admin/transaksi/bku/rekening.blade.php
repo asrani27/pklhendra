@@ -16,7 +16,7 @@
               <div class="box-tools">
                 <a href="/admin/transaksi/bku/addrekening/{{$data->id}}" class="btn btn-sm btn-primary btn-flat"><i class="fa fa-plus-circle"></i> Rekening</a>
                 
-                <a href="/admin/transaksi/bku/pdf/{{$id}}" class="btn btn-sm btn-danger btn-flat"><i class="fa fa-file"></i> PDF</a>
+                <a href="/admin/transaksi/bku/print/{{$id}}" class="btn btn-sm btn-danger btn-flat" target="_blank"><i class="fa fa-file"></i> PRINT</a>
               </div>
             </div>
             <!-- /.box-header -->
@@ -63,7 +63,7 @@
                         </td>
                         <td>
                           <a href="#"
-                            class="btn btn-xs btn-flat edit-uraian" data-bku_rekening_detail_id="{{$item2->id}}" data-uraian="{{$item2->uraian}}" data-penerimaan="{{$item2->penerimaan}}" data-pengeluaran="{{$item2->pengeluaran}}"><i class="fa fa-edit"></i></a>
+                            class="btn btn-xs btn-flat edit-uraian" data-bku_rekening_detail_id="{{$item2->id}}" data-uraian="{{$item2->uraian}}" data-penerimaan="{{$item2->penerimaan}}" data-pajak="{{$item2->pajak}}"><i class="fa fa-edit"></i></a>
 
                           <a href="/admin/transaksi/bku/detailrekening/delete/{{$item2->id}}"
                           onclick="return confirm('Yakin ingin di hapus');"
@@ -125,6 +125,11 @@
                   <label>Pengeluaran</label>
                   <input type="text" class="form-control" name="pengeluaran">
               </div>
+              <div class="form-group">
+                  <label>Pajak</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <input type="radio" name="pajak" value="1" required>&nbsp;Ya&nbsp;&nbsp;&nbsp;&nbsp;
+                  <input type="radio" name="pajak" value="0" required>&nbsp;Tidak
+              </div>
               
           </div>
           <div class="modal-footer">
@@ -144,7 +149,7 @@
           <div class="modal-header bg-purple">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title"><i class="ion ion-clipboard"></i> Tambah Uraian</h4>
+            <h4 class="modal-title"><i class="ion ion-clipboard"></i> Edit Uraian</h4>
           </div>
           <form method="post" action="/admin/transaksi/bku/detail/{{$id}}/updateuraian">
           <div class="modal-body">
@@ -164,6 +169,11 @@
                   <input type="text" id="pengeluaran" class="form-control" name="pengeluaran">
               </div>
               
+              <div class="form-group">
+                <label>Pajak</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" id="pajak1" name="pajak" value="1" required>&nbsp;Ya&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" id="pajak2" name="pajak" value="0" required>&nbsp;Tidak
+            </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn bg-grey pull-left" data-dismiss="modal"><i class="fa fa-sign-out"></i> Close</button>
@@ -194,6 +204,15 @@
   $('#detail_uraian').val($(this).data('uraian'));
   $('#penerimaan').val($(this).data('penerimaan'));
   $('#pengeluaran').val($(this).data('pengeluaran'));
+  var x = $(this).data('pajak');
+  let pajak;
+  if(x == 0){
+    pajak =  document.getElementById("pajak2");
+  }else{
+    pajak =  document.getElementById("pajak1");
+  }
+  pajak.checked = true;
+
   $("#modal-edit").modal();
 });
 </script>

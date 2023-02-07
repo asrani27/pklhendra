@@ -11,12 +11,12 @@
           <br/>
           <div class="box box-primary">
             <div class="box-header">
-              <h3 class="box-title"><i class="fa fa-clipboard"></i> NPD</h3>
+              <h3 class="box-title"><i class="fa fa-clipboard"></i> SPTJB</h3>
     
               <div class="box-tools">
                 
                 
-                <a href="/admin/transaksi/npd/print/{{$id}}" target="_blank" class="btn btn-sm btn-danger btn-flat"><i class="fa fa-file"></i> PRINT</a>
+                <a href="/admin/transaksi/sptjb/pdf/{{$id}}" class="btn btn-sm btn-danger btn-flat"><i class="fa fa-file"></i> PRINT</a>
               </div>
             </div>
             <!-- /.box-header -->
@@ -25,36 +25,28 @@
                 <tbody>
                 <tr style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:10px; background-color:silver">
                   <th class="text-center">No</th>
+                  <th class="text-center" style="vertical-align: middle">Penerima</th>
                   <th class="text-center" style="vertical-align: middle">Kode Rekening</th>
-                  <th class="text-center" style="vertical-align: middle">Uraian</th>
-                  <th class="text-center">Anggaran</th>
-                  <th class="text-center">Akumulasi Pencairan Sebelumnya</th>
-                  <th class="text-center">Pencairan Saat Ini</th>
-                  <th>Sisa</th>
+                  <th class="text-center">Uraian</th>
+                  <th class="text-center">Jumlah</th>
                 </tr>
                 @php
                     $no =1;
                 @endphp
-                @foreach ($detail as $item)
+                @foreach ($data as $item)
                     <tr style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:10px;">
                       <td>{{$no++}}</td>
                       <td class="text-center">
-                        {{koderekening($item->koderek->kode1,$item->koderek->kode2,$item->koderek->kode3,$item->koderek->kode4,$item->koderek->kode5,$item->koderek->kode6)}} 
+                    
+                      </td>
+                      <td class="text-center">
+                        {{koderekening($item->rekening->koderek->kode1,$item->rekening->koderek->kode2,$item->rekening->koderek->kode3,$item->rekening->koderek->kode4,$item->rekening->koderek->kode5,$item->rekening->koderek->kode6)}} 
                       </td>
                       <td>
-                        {{$item->koderek->uraian}}
+                        {{$item->uraian}}
                       </td>
-                      <td style="text-align: right">
-                        {{number_format($item->ja)}}
-                      </td>
-                      <td style="text-align: right">
-                        {{number_format($item->aps)}}
-                      </td>
-                      <td style="text-align: right">
-                        {{number_format($item->psi)}}
-                      </td>
-                      <td style="text-align: right">
-                        {{number_format($item->sisa_npd)}}
+                     <td style="text-align: right">
+                        {{number_format($item->pengeluaran)}}
                       </td>
                       
                     </tr>
@@ -62,14 +54,12 @@
                 
               </tbody>
               <tfoot>
-                <tr style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:10px; background-color:silver;">
+                <tr style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:10px;">
                   <td></td>
                   <td></td>
-                  <td>Jumlah</td>
-                  <td style="text-align: right">{{number_format($detail->sum('ja'))}}</td>
-                  <td style="text-align: right">{{number_format($detail->sum('aps'))}}</td>
-                  <td style="text-align: right">{{number_format($detail->sum('psi'))}}</td>
-                  <td style="text-align: right">{{number_format($detail->sum('sisa_npd'))}}</td>
+                  <td>TOTAL</td>
+                  <td style="text-align: right"></td>
+                  <td style="text-align: right">{{number_format($data->sum('pengeluaran'))}}</td>
                 </tr>
               </tfoot>
             </table>
@@ -124,7 +114,7 @@
           <div class="modal-header bg-purple">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title"><i class="ion ion-clipboard"></i> Edit Uraian</h4>
+            <h4 class="modal-title"><i class="ion ion-clipboard"></i> Tambah Uraian</h4>
           </div>
           <form method="post" action="/admin/transaksi/bku/detail/{{$id}}/updateuraian">
           <div class="modal-body">

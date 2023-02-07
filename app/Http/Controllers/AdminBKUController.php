@@ -87,6 +87,7 @@ class AdminBKUController extends Controller
     public function simpanUraian(Request $req, $id)
     {
         $data = $req->all();
+
         $data['t_spj_id'] = $id;
         $data['t_bku_rekening_id'] = $req->bku_rekening_id;
 
