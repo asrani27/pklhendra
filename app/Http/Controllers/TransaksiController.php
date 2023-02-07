@@ -58,6 +58,8 @@ class TransaksiController extends Controller
     }
     public function kuitansisatu($id)
     {
-        return view('admin.transaksi.index', compact('id'));
+        $ttd = T_spj::find($id);
+        $data = T_bku_rekening_detail::where('t_spj_id', $id)->where('pajak', 0)->get();
+        return view('admin.transaksi.kuitansi.index', compact('id', 'data', 'ttd'));
     }
 }

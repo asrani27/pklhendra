@@ -23,6 +23,7 @@ use App\Http\Controllers\AdminKoderekController;
 use App\Http\Controllers\BidangAngkasController;
 use App\Http\Controllers\BidangUraianController;
 use App\Http\Controllers\LupaPasswordController;
+use App\Http\Controllers\AdminKuitansiController;
 use App\Http\Controllers\BidangBerandaController;
 use App\Http\Controllers\BidangProgramController;
 use App\Http\Controllers\DaftarLayananController;
@@ -83,6 +84,9 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
         Route::get('transaksi/npd/edit/{id}', [AdminNPDController::class, 'edit']);
         Route::post('transaksi/npd/edit/{id}', [AdminNPDController::class, 'update']);
 
+        Route::get('transaksi/kuitansi/edit/{id}', [AdminKuitansiController::class, 'edit']);
+        Route::post('transaksi/kuitansi/edit/{id}', [AdminKuitansiController::class, 'update']);
+
         Route::get('transaksi/sptjb/edit/{id}', [AdminSPTJBController::class, 'edit']);
         Route::post('transaksi/sptjb/edit/{id}', [AdminSPTJBController::class, 'update']);
 
@@ -95,7 +99,7 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
         Route::get('transaksi/bku/print/{id}', [PrintController::class, 'bku']);
         Route::get('transaksi/npd/print/{id}', [PrintController::class, 'npd']);
         Route::get('transaksi/sptjb/print/{id}', [PrintController::class, 'sptjb']);
-        Route::get('transaksi/kuitansi11/print/{id}', [PrintController::class, 'kuitansi11']);
+        Route::get('transaksi/kuitansi/satu/print/{id}', [PrintController::class, 'kuitansi11']);
 
         Route::get('transaksi/bku', [AdminBKUController::class, 'index']);
         Route::get('transaksi/bku/add', [AdminBKUController::class, 'create']);
