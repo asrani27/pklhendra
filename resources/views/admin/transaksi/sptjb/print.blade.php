@@ -11,119 +11,81 @@
 
     <table width="100%" cellpadding="0" cellspacing="0">
         <tr>
-            <td colspan=7 style="font-family: Arial, Helvetica, sans-serif;font-size:12px;font-weight:bold; text-align:center">
-              NOTA PENCAIRAN DANA (NPD)
+            <td colspan=7 style="font-family: Arial, Helvetica, sans-serif;font-size:14px;font-weight:bold; text-align:center">
+              <u>SURAT PENYATAAN TANGGUNG JAWAB BELANJA (SPTJB)</u>
                 <br/>
-                Nomor<br/><br/>
             </td>
         </tr>
         
     </table>
-
-    <table width="100%" cellpadding="0" cellspacing="0" style="font-family: Arial, Helvetica, sans-serif;font-size:10px">
+<br/>
+    <table width="100%" cellpadding="0" cellspacing="0" style="font-family: Arial, Helvetica, sans-serif;font-size:10px;font-weight:bold">
       <tr>
-          <td colspan="4">Bendahara</td>
+        <td>SATUAN KERJA</td>
+        <td>:</td>
+        <td>'2.16.2.20.2.21.02.0000 DINAS KOMUNIKASI, INFORMATIKA DAN STATISTIK KOTA BANJARMASIN</td>
       </tr>
       <tr>
-          <td>SKPD</td>
-          <td></td>
-          <td>:</td>
-          <td>2.16.2.20.2.21.02.0000  Dinas Komunikasi, Informatika dan Statistik Kota Banjarmasin</td>
+        <td>KODE SATUAN KERJA</td>
+        <td>:</td>
+        <td>2.16.2.20.2.21.02.0000</td>
       </tr>
       <tr>
-          <td colspan="4">Supaya mencairkan dana kepada</td>
+        <td>TANGGAL/ NO. DPA</td>
+        <td>:</td>
+        <td>14 Oktober 2022 /DPPA/B.1/2.16.2.20.2.21.02.0000/001/2022</td>
       </tr>
       <tr>
-          <td>1.</td>
-          <td>Pejabat Pelaksana Teknis Kegiatan</td>
-          <td>:</td>
-          <td>{{$data->pptk}}</td>
+        <td>PROGRAM</td>
+        <td>:</td>
+        <td>2.16.03 PROGRAM APLIKASI INFORMATIKA</td>
       </tr>
       <tr>
-          <td>2.</td>
-          <td>Program</td>
-          <td>:</td>
-          <td>2.16.03 PROGRAM APLIKASI INFORMATIKA</td>
+        <td>KEGIATAN</td>
+        <td>:</td>
+        <td>2.16.03.2.02 Pengelolaan e-government Di Lingkup Pemerintah Daerah Kabupaten/Kota</td>
       </tr>
       <tr>
-          <td>3.</td>
-          <td>Kegiatan</td>
-          <td>:</td>
-          <td>2.16.03.2.02 Pengelolaan e-government Di Lingkup Pemerintah Daerah Kabupaten/Kota</td>
+        <td>SUB KEGIATAN</td>
+        <td>:</td>
+        <td>2.16.03.2.02.07 Pengembangan Aplikasi dan Proses Bisnis Pemerintahan Berbasis Elektronik</td>
       </tr>
       <tr>
-          <td>4.</td>
-          <td>Sub Kegiatan</td>
-          <td>:</td>
-          <td>{{$data->subkegiatan}}</td>
-      </tr>
-      <tr>
-          <td>5.</td>
-          <td>No.DPA/DPAL/DPPA-SKPD</td>
-          <td>:</td>
-          <td>DPPA/B.1/2.16.2.20.2.21.02.0000/001/2022, 14 Oktober 2022</td>
-      </tr>
-      <tr>
-          <td>6.</td>
-          <td>Tahun Anggaran</td>
-          <td>:</td>
-          <td>{{$data->tahun}}</td>
-      </tr>
-      <tr>
-          <td>7.</td>
-          <td>Jumlah Dana yang diminta</td>
-          <td>:</td>
-          <td>{{number_format($detail->sum('psi'))}}</td>
-      </tr>
-      <tr>
-          <td></td>
-          <td>Terbilang</td>
-          <td>:</td>
-          <td>{{terbilang($detail->sum('psi'))}} rupiah</td>
-      </tr>
-      <tr>
-          <td colspan="4">
-            <br/>
-            <br/>
-            Pembebanan Pada Kode Rekening
-          <br/><br/></td>
+        <td>TAHUN ANGGARAN</td>
+        <td>:</td>
+        <td>{{$ttd->tahun}}</td>
       </tr>
       
+      
   </table>
-
-    <table width="100%" border=1 cellpadding="3" cellspacing="0">
+  <br/>
+  <div style="font-family: Arial, Helvetica, sans-serif;font-size:10px;">Yang bertanda tangan di bawah ini Pengguna Anggaran pada Dinas Komunikasi, Informatika dan Statistik Kota Banjarmasin. Menyatakan bahwa saya bertanggung jawab penuh atas kebenaran material, kesesuaian substansi dan uraian dalam Dokumen Pelaksanaan Perubahan Anggaran (DPPA) serta akibat yang timbul dari segala pengeluaran yang lunas oleh bendahara kepada yang berhak menerima dengan perincian sebagai berikut :
+  <br/><br/></div>
+  <table width="100%" border=1 cellpadding="3" cellspacing="0">
       <tr style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:10px;">
         <th class="text-center">No</th>
+        <th class="text-center" style="vertical-align: middle">Penerima</th>
         <th class="text-center" style="vertical-align: middle">Kode Rekening</th>
-        <th class="text-center" style="vertical-align: middle">Uraian</th>
-        <th class="text-center">Anggaran</th>
-        <th class="text-center">Akumulasi Pencairan Sebelumnya</th>
-        <th class="text-center">Pencairan Saat Ini</th>
-        <th>Sisa</th>
+        <th class="text-center">Uraian</th>
+        <th class="text-center">Jumlah</th>
       </tr>
       @php
           $no =1;
       @endphp
-      @foreach ($detail as $item)
+      @foreach ($data as $item)
           <tr style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:10px;">
             <td>{{$no++}}</td>
             <td class="text-center">
-              {{koderekening($item->koderek->kode1,$item->koderek->kode2,$item->koderek->kode3,$item->koderek->kode4,$item->koderek->kode5,$item->koderek->kode6)}} 
+          
+            </td>
+            <td class="text-center">
+              {{koderekening($item->rekening->koderek->kode1,$item->rekening->koderek->kode2,$item->rekening->koderek->kode3,$item->rekening->koderek->kode4,$item->rekening->koderek->kode5,$item->rekening->koderek->kode6)}} 
             </td>
             <td>
-              {{$item->koderek->uraian}}
+              {{$item->uraian}}
             </td>
             <td style="text-align: right">
-              {{number_format($item->ja)}}
-            </td>
-            <td style="text-align: right">
-              {{number_format($item->aps)}}
-            </td>
-            <td style="text-align: right">
-              {{number_format($item->psi)}}
-            </td>
-            <td style="text-align: right">
-              {{number_format($item->sisa_npd)}}
+              {{number_format($item->pengeluaran)}}
             </td>
             
           </tr>
@@ -131,40 +93,29 @@
       <tr style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:10px;">
         <td></td>
         <td></td>
-        <td>Jumlah</td>
-        <td style="text-align: right">{{number_format($detail->sum('ja'))}}</td>
-        <td style="text-align: right">{{number_format($detail->sum('aps'))}}</td>
-        <td style="text-align: right">{{number_format($detail->sum('psi'))}}</td>
-        <td style="text-align: right">{{number_format($detail->sum('sisa_npd'))}}</td>
+        <td>TOTAL</td>
+        <td style="text-align: right"></td>
+        <td style="text-align: right">{{number_format($data->sum('pengeluaran'))}}</td>
       </tr>
     </table>
+    <br/>
+    <div style="font-family: Arial, Helvetica, sans-serif;font-size:10px;">
+    Surat bukti asli yang menjadi dasar pengeluaran atas beban APBD tersebut di atas disimpan sesuai dengan ketentuan yang berlaku pada Dinas Komunikasi, Informatika dan Statistik Kota Banjarmasin untuk kelengkapan administrasi dan keperluan pemeriksaan aparat pengawasan fungsional (post audit).
+    <br/>Demikian Surat Pernyataan ini dibuat dengan sebenarnya.</div>
     <table width="100%">
         <br/><br/>
         <tr style="font-size: 10px; text-align:center">
-            <td></td>
-            <td>Mengetahui,<br/>
-            Pengguna Anggaran<br/><br/><br/><br/><br/>
-        
-            <u>{{$data->pengguna}}</u><br/>
-            {{$data->nip_pengguna}}<br/>
-            </td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td width="50%"></td>
             <td></td>
             <td></td>
             <td></td>
             <td></td>
             <td>Banjarmasin,  {{\Carbon\Carbon::today()->translatedFormat('F Y')}}<br/>
-            PPTK,<br/><br/><br/><br/><br/>
+            PENGGUNA ANGGARAN,<br/><br/><br/><br/><br/>
         
-            <u>{{$data->pptk}}</u><br/>
-            {{$data->nip_pptk}}<br/>
+            <b><u>{{$ttd->pengguna}}</u><br/>
+            {{$ttd->nip_pengguna}}<br/></b>
             </td>
-            <td></td>
-            <td></td>
-            <td></td>
           </tr>
     </table>
     

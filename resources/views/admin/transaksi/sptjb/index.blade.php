@@ -16,7 +16,7 @@
               <div class="box-tools">
                 
                 
-                <a href="/admin/transaksi/sptjb/pdf/{{$id}}" class="btn btn-sm btn-danger btn-flat"><i class="fa fa-file"></i> PRINT</a>
+                <a href="/admin/transaksi/sptjb/print/{{$id}}" target="_blank" class="btn btn-sm btn-danger btn-flat"><i class="fa fa-file"></i> PRINT</a>
               </div>
             </div>
             <!-- /.box-header -->

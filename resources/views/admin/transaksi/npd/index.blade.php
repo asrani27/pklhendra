@@ -9,9 +9,45 @@
           @include('admin.transaksi.menu')
           <br/>
           <br/>
+            <div class="box box-primary">
+              <div class="box-header with-border">
+                <i class="fa fa-text-width"></i>
+  
+                <h3 class="box-title">NPD</h3>
+              </div>
+              <!-- /.box-header -->
+              <div class="box-body">
+                <dl class="dl-horizontal">
+                  <dt>Nomor NPD</dt>
+                  <dd>{{$data->no_npd}}</dd>
+                  <dt>PPTK</dt>
+                  <dd>{{$data->pptk}}</dd>
+                  
+                  <dt>Program</dt>
+                  <dd>{{$data->kode_program}} {{$data->program}}</dd>
+                  <dt>Kegiatan</dt>
+                  <dd>{{$data->kode_kegiatan}} {{$data->kegiatan}}
+                  </dd>
+                  <dt>Sub Kegiatan</dt>
+                  <dd>{{$data->subkegiatan}}
+                  </dd>
+                  <dt>No. DPA</dt>
+                  <dd>{{$data->no_dpa}}
+                  </dd>
+                  <dt>Tahun Anggaran</dt>
+                  <dd>{{$data->tahun}}
+                  </dd>
+                  <dt>Jumlah Dana Diminta</dt>
+                  <dd>{{number_format($detail->sum('psi'))}}
+                  </dd>
+                </dl>
+              </div>
+              <!-- /.box-body -->
+            </div>
+            
           <div class="box box-primary">
             <div class="box-header">
-              <h3 class="box-title"><i class="fa fa-clipboard"></i> NPD</h3>
+              <h3 class="box-title"><i class="fa fa-clipboard"></i> Rekening</h3>
     
               <div class="box-tools">
                 
