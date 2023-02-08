@@ -75,7 +75,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2022 <a href="#">M. Hendra Hidayat</a>.</strong>
+    <strong>Copyright &copy; <a href="#">M. Hendra Hidayat</a>.</strong>
   </footer>
 
   <!-- Control Sidebar -->
