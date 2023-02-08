@@ -114,14 +114,14 @@
         <tr style="font-size: 10px; text-align:center">
             <td></td>
             <td>Mengetahui/Menyetujui,<br/>
-            Pengguna Anggaran<br/><br/><br/><br/><br/>
+            Pengguna Anggaran,<br/><br/><br/><br/><br/>
         
             <u>{{$ttd->pengguna}}</u><br/>
             {{$ttd->nip_pengguna}}<br/>
             </td>
             <td></td>
 
-            <td>Lunas Dibayar<br/>Bendahara Pengeluaran
+            <td>Lunas Dibayar<br/>Bendahara Pengeluaran,
               <br/><br/><br/><br/><br/>
 
             <u>{{$ttd->bendahara}}</u><br/>
@@ -142,7 +142,7 @@
             <td></td>
             <td></td>
             <td>Banjarmasin, &nbsp;&nbsp;&nbsp;&nbsp;{{\Carbon\Carbon::today()->translatedFormat('F Y')}} <br/>
-              Yang Menerima<br/><br/><br/><br/><br/>
+              Yang Menerima,<br/><br/><br/><br/><br/>
               <u>{{$data->penerima}}</u><br/><br/>
             
             </td>
