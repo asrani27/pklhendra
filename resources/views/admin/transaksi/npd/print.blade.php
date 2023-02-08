@@ -85,7 +85,7 @@
           <td></td>
           <td>Terbilang</td>
           <td>:</td>
-          <td>{{ucwords(terbilang($detail->sum('psi')))}} rupiah</td>
+          <td>{{ucwords(terbilang($detail->sum('psi')))}} Rupiah</td>
       </tr>
       <tr>
           <td colspan="4">
