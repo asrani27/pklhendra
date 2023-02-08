@@ -49,6 +49,14 @@ class PrintController extends Controller
     {
         $ttd = T_spj::find($id);
         $data = T_bku_rekening_detail::where('t_spj_id', $id)->where('pajak', 0)->get();
-        return view('admin.transaksi.sptjb.print', compact('id', 'data','ttd'));
+        return view('admin.transaksi.sptjb.print', compact('id', 'data', 'ttd'));
+    }
+
+    public function kuitansi11($id)
+    {
+        $data = T_bku_rekening_detail::find($id);
+
+        $ttd = T_spj::find($data->t_spj_id);
+        return view('admin.transaksi.kuitansi.print', compact('id', 'data', 'ttd'));
     }
 }

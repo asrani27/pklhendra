@@ -45,6 +45,8 @@
                   <th class="text-center" style="vertical-align: middle">Penerima</th>
                   <th class="text-center" style="vertical-align: middle">Kode Rekening</th>
                   <th class="text-center">Uraian</th>
+                  <th class="text-center">PPN</th>
+                  <th class="text-center">Jumlah</th>
                   <th class="text-center"></th>
                 </tr>
                 @php
@@ -63,6 +65,12 @@
                       </td>
                       <td>
                         {{$item->uraian}}
+                      </td>
+                      <td style="text-align: right">
+                         {{number_format($item->ppn)}}
+                      </td>
+                      <td style="text-align: right">
+                          {{number_format($item->pengeluaran)}}
                       </td>
                      <td  class="text-center">  
                       <a href="/admin/transaksi/kuitansi/satu/print/{{$item->id}}" target="_blank" class="btn btn-xs btn-primary btn-flat"><i class="fa fa-file"></i> Kuitansi</a> 

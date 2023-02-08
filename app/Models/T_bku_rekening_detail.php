@@ -16,4 +16,8 @@ class T_bku_rekening_detail extends Model
     {
         return $this->belongsTo(T_bku_rekening::class, 't_bku_rekening_id');
     }
+    public function spj()
+    {
+        return $this->belongsTo(T_spj::class, 't_spj_id');
+    }
 }
