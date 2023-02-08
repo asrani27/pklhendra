@@ -63,6 +63,7 @@
                 </tr>
                 @foreach ($data->detail as $key => $item)
                 <tr style="font-size: 10px">
+                  
                     <td>{{koderekening($item->koderek->kode1,$item->koderek->kode2,$item->koderek->kode3,$item->koderek->kode4,$item->koderek->kode5,$item->koderek->kode6)}} 
                       <a href="/admin/transaksi/spj/detail/delete/{{$item->id}}"
                         onclick="return confirm('Yakin ingin di hapus');"
