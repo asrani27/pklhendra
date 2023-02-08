@@ -10,6 +10,11 @@
 <body>
 
     <table width="100%" cellpadding="0" cellspacing="0">
+      <tr>
+        <td colpsan=7>
+          <img src="/logo/kop.jpg" height="130px">
+        </td>
+      </tr>
         <tr>
             <td colspan=7 style="font-family: Arial, Helvetica, sans-serif;font-size:14px;font-weight:bold; text-align:center">
               <u>SURAT PENYATAAN TANGGUNG JAWAB BELANJA (SPTJB)</u>
