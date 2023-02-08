@@ -61,7 +61,7 @@
           <td>4.</td>
           <td>Sub Kegiatan</td>
           <td>:</td>
-          <td>{{$data->subkegiatan}}</td>
+          <td>{{$data->kode_subkegiatan}} {{$data->subkegiatan}}</td>
       </tr>
       <tr>
           <td>5.</td>
