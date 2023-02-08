@@ -37,7 +37,7 @@
       @endphp
       @foreach ($rekening as $item)
       <tr  style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:10px;">
-        <td rowspan="{{$item->detailRekening->count() + 1}}" style="text-align: center">
+        <td valign="top" rowspan="{{$item->detailRekening->count() + 1}}" style="text-align: center">
           {{$no++}}
         </td>
         <td class="text-center" rowspan="{{$item->detailRekening->count() + 1}}">
@@ -47,7 +47,7 @@
           {{\Carbon\Carbon::parse($item->tanggal)->format('d-m-Y')}}
           @endif
         </td>
-        <td class="text-center" rowspan="{{$item->detailRekening->count() + 1}}">{{koderekening($item->koderek->kode1,$item->koderek->kode2,$item->koderek->kode3,$item->koderek->kode4,$item->koderek->kode5,$item->koderek->kode6)}}
+        <td  valign="top" class="text-center" rowspan="{{$item->detailRekening->count() + 1}}">{{koderekening($item->koderek->kode1,$item->koderek->kode2,$item->koderek->kode3,$item->koderek->kode4,$item->koderek->kode5,$item->koderek->kode6)}}
         <br/>
           <a href="#"
           class="btn btn-xs btn-flat tambah-uraian" data-bku_rekening_id="{{$item->id}}"><i class="fa fa-plus-circle"></i></a>

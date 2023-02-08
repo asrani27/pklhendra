@@ -31,7 +31,7 @@
                 <dt>KODE SATUAN KERJA</dt>
                 <dd>{{$ttd->kode_skpd}}</dd>
                 <dt>TANGGAL/NO.DPA</dt>
-                <dd>{{$ttd->tanggal}} / {{$ttd->no_dpa}}
+                <dd>{{\Carbon\Carbon::parse($ttd->tanggal)->translatedFormat('d F Y')}} / {{$ttd->no_dpa}}
                 </dd>
                 <dt>PROGRAM</dt>
                 <dd>{{$ttd->kode_program}} {{$ttd->program}}
