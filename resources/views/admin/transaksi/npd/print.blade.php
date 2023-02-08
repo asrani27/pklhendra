@@ -10,14 +10,19 @@
 <body>
 
     <table width="100%" cellpadding="0" cellspacing="0">
-        <tr>
-            <td colspan=7 style="font-family: Arial, Helvetica, sans-serif;font-size:12px;font-weight:bold; text-align:center">
-              NOTA PENCAIRAN DANA (NPD)
-                <br/>
-                Nomor : 
-                {{$data->nomor_npd}}<br/><br/>
-            </td>
-        </tr>
+      <tr>
+        <td colpsan=7>
+          <img src="/logo/kop.jpg" height="130px">
+        </td>
+      </tr>
+      <tr>
+          <td colspan=7 style="font-family: Arial, Helvetica, sans-serif;font-size:12px;font-weight:bold; text-align:center">
+            NOTA PENCAIRAN DANA (NPD)
+              <br/>
+              Nomor : 
+              {{$data->nomor_npd}}<br/><br/>
+          </td>
+      </tr>
         
     </table>
 

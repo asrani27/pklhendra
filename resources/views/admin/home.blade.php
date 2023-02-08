@@ -23,6 +23,7 @@
         <!-- /.info-box-content -->
       </div>
       <!-- /.info-box -->
+    <img src="/logo/pemko.jpeg" width="100%" height="500px">
     </div>
   </div>
   {{-- <div class="row">

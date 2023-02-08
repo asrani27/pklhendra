@@ -56,6 +56,27 @@
       </tr>
       
     </table>
+<br/><br/>
+    <table width="100%" cellpadding="0" cellspacing="0" style="font-family:Arial, Helvetica, sans-serif; font-size:10px;">
+      <tr>
+        <td>Terbilang</td>
+        <td>= Rp. </td>
+        <td style="font-size: 10px; text-align:center">{{number_format($data->pengeluaran)}}</td>
+        <td>Untuk Pembayaran :<br/>
+        {{$data->uraian}}</td>
+      </tr>
+      <tr>
+        <td><br/></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>PPN</td>
+        <td>= Rp. </td>
+        <td>{{$data->ppn}}</td>
+      </tr>
+      
+    </table>
     {{-- <table width="100%">
         <br/><br/>
         <tr style="font-size: 10px; text-align:center">
