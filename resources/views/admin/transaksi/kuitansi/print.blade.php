@@ -61,7 +61,8 @@
       <tr>
         <td>Terbilang</td>
         <td>= Rp. </td>
-        <td style="font-size: 10px; text-align:center">{{number_format($data->pengeluaran)}}</td>
+        <td style="font-size: 10px; text-align:right">{{number_format($data->pengeluaran)}}</td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
         <td>Untuk Pembayaran :<br/>
         {{$data->uraian}}</td>
       </tr>
@@ -69,43 +70,84 @@
         <td><br/></td>
         <td></td>
         <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td>PPN</td>
         <td>= Rp. </td>
-        <td>{{$data->ppn}}</td>
+        <td style="font-size: 10px; text-align:right; border-bottom:solid 1px black;">{{number_format($data->ppn)}}</td>
+        <td></td>
+        <td></td>
       </tr>
-      
+      <tr>
+        <td><br/></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Sisa</td>
+        <td>= Rp. </td>
+        <td style="font-size: 10px; text-align:right;">{{number_format($data->pengeluaran - $data->ppn)}}</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><br/></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Jumlah yang dibayar</td>
+        <td>= Rp. </td>
+        <td style="font-size: 10px; text-align:right;">{{number_format($data->pengeluaran - $data->ppn)}}</td>
+        <td></td>
+        <td></td>
+      </tr>
     </table>
-    {{-- <table width="100%">
+    <table width="100%">
         <br/><br/>
         <tr style="font-size: 10px; text-align:center">
             <td></td>
-            <td>Mengetahui,<br/>
+            <td>Mengetahui/Menyetujui,<br/>
             Pengguna Anggaran<br/><br/><br/><br/><br/>
         
-            <u>{{$data->pengguna}}</u><br/>
-            {{$data->nip_pengguna}}<br/>
+            <u>{{$ttd->pengguna}}</u><br/>
+            {{$ttd->nip_pengguna}}<br/>
+            </td>
+            <td></td>
+
+            <td>Lunas Dibayar<br/>Bendahara Pengeluaran
+              <br/><br/><br/><br/><br/>
+
+            <u>{{$ttd->bendahara}}</u><br/>
+            {{$ttd->nip_bendahara}}<br/>
             </td>
             <td></td>
             <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>Banjarmasin,  {{\Carbon\Carbon::today()->translatedFormat('F Y')}}<br/>
-            PPTK,<br/><br/><br/><br/><br/>
-        
-            <u>{{$data->pptk}}</u><br/>
-            {{$data->nip_pptk}}<br/>
+
+
+            <td>Setuju Dibayar,<br/>
+              PPTK,<br/><br/><br/><br/><br/>
+          
+              <u>{{$ttd->pptk}}</u><br/>
+              {{$ttd->nip_pptk}}<br/>
             </td>
             <td></td>
+
             <td></td>
             <td></td>
+            <td>Banjarmasin, &nbsp;&nbsp;&nbsp;&nbsp;{{\Carbon\Carbon::today()->translatedFormat('F Y')}} <br/>
+              Yang Menerima<br/><br/><br/><br/><br/>
+              <u>{{$data->penerima}}</u><br/><br/>
+            
+            </td>
           </tr>
-    </table> --}}
+    </table>
     
 </body>
 <script type="text/javascript">
