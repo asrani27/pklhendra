@@ -52,7 +52,7 @@
       <tr>
         <td>Uang Sejumlah</td>
         <td>:</td>
-        <td>{{terbilang($data->pengeluaran)}} rupiah</td>
+        <td>{{ucwords(terbilang($data->pengeluaran))}} Rupiah</td>
       </tr>
       
     </table>
