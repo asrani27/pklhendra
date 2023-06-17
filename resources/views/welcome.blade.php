@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>PKL HENDRA</title>
+  <title>SKRIPSI HENDRA</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -39,7 +39,7 @@
     <nav class="navbar navbar-static-top"  style="box-shadow: 0 8px 8px 0 rgba(0,0,0,.2);">
       <div class="container">
         <div class="navbar-header">
-          <a href="#" class="navbar-brand"><b>PKL HENDRA</b></a>
+          <a href="#" class="navbar-brand"><b>SKRIPSI HENDRA</b></a>
         </div>
 
         <div class="collapse navbar-collapse pull-left" id="navbar-collapse">

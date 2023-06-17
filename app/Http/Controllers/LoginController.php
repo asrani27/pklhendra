@@ -17,14 +17,17 @@ class LoginController extends Controller
         // Session::flash('error', 'Ini notifikasi error');
 
         if (Auth::check()) {
+
             if (Auth::user()->hasRole('superadmin')) {
                 return redirect('/superadmin/beranda');
             } elseif (Auth::user()->hasRole('admin')) {
                 return redirect('/admin/beranda');
-            } elseif (Auth::user()->hasRole('bidang')) {
-                return redirect('/bidang/beranda');
-            } elseif (Auth::user()->hasRole('pptk')) {
-                return redirect('/pptk/beranda');
+            } elseif (Auth::user()->hasRole('staf')) {
+                return redirect('/staf/beranda');
+            } elseif (Auth::user()->hasRole('verifikator')) {
+                return redirect('/verifikator/beranda');
+            } elseif (Auth::user()->hasRole('bendahara')) {
+                return redirect('/bendahara/beranda');
             } else {
                 return 'role lain';
             }

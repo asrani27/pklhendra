@@ -1,5 +1,6 @@
 <li class="{{ (request()->is('admin/beranda')) ? 'active' : '' }}"><a href="/admin/beranda"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
 <li class="{{ (request()->is('admin/data/koderek*')) ? 'active' : '' }}"><a href="/admin/data/koderek"><i class="fa fa-list"></i> <span>Data Kode Rek</span></a></li>
+<li class="{{ (request()->is('admin/data/user*')) ? 'active' : '' }}"><a href="/admin/data/user"><i class="fa fa-users"></i> <span>Data User</span></a></li>
 
 <li class="header">TRANSAKSI</li>
 <li class="{{ (request()->is('admin/transaksi/spj')) ? 'active' : '' }}"><a href="/admin/transaksi/spj"><i class="fa fa-list"></i> <span>TRANSAKSI SPJ</span></a></li>
