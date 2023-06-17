@@ -53,12 +53,15 @@ class LoginController extends Controller
             } elseif (Auth::user()->hasRole('admin')) {
                 Session::flash('success', 'Selamat Datang');
                 return redirect('/admin/beranda');
-            } elseif (Auth::user()->hasRole('bidang')) {
+            } elseif (Auth::user()->hasRole('staf')) {
                 Session::flash('success', 'Selamat Datang');
-                return redirect('/bidang/beranda');
-            } elseif (Auth::user()->hasRole('pptk')) {
+                return redirect('/staf/beranda');
+            } elseif (Auth::user()->hasRole('verifikator')) {
                 Session::flash('success', 'Selamat Datang');
-                return redirect('/berandapptk');
+                return redirect('/verifikator/beranda');
+            } elseif (Auth::user()->hasRole('bendahara')) {
+                Session::flash('success', 'Selamat Datang');
+                return redirect('/bendahara/beranda');
             } else {
                 Session::flash('success', 'Selamat Datang');
                 return 'role lain';
