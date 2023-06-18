@@ -14,23 +14,23 @@ class StafBKUController extends Controller
     public function index()
     {
         $data = T_bku::paginate(15);
-        return view('admin.transaksi.bku.index', compact('data'));
+        return view('staf.transaksi.bku.index', compact('data'));
     }
     public function create()
     {
-        return view('admin.transaksi.bku.create');
+        return view('staf.transaksi.bku.create');
     }
     public function store(Request $req)
     {
         T_bku::create($req->all());
         Session::flash('success', 'Berhasil DiSimpan');
-        return redirect('/admin/transaksi/bku');
+        return redirect('/staf/transaksi/bku');
     }
 
     public function edit($id)
     {
         $data = T_bku::find($id);
-        return view('admin.transaksi.bku.edit', compact('data'));
+        return view('staf.transaksi.bku.edit', compact('data'));
     }
 
     public function delete($id)
@@ -44,7 +44,7 @@ class StafBKUController extends Controller
     {
         T_bku::find($id)->update($req->all());
         Session::flash('success', 'Berhasil Diupdate');
-        return redirect('/admin/transaksi/bku');
+        return redirect('/staf/transaksi/bku');
     }
 
     public function detail($id)
@@ -52,12 +52,12 @@ class StafBKUController extends Controller
         $data = T_bku::find($id);
         $rekening = T_bku_rekening::where('t_bku_id', $id)->get();
         $total = T_bku_rekening_detail::where('t_bku_id', $id)->get();
-        return view('admin.transaksi.bku.rekening', compact('data', 'rekening', 'id', 'total'));
+        return view('staf.transaksi.bku.rekening', compact('data', 'rekening', 'id', 'total'));
     }
     public function addRekening($id)
     {
         $data = M_koderek::get();
-        return view('admin.transaksi.bku.addrekening', compact('id', 'data'));
+        return view('staf.transaksi.bku.addrekening', compact('id', 'data'));
     }
     public function storeRekening(Request $req, $id)
     {
@@ -67,7 +67,7 @@ class StafBKUController extends Controller
         T_bku_rekening::create($data);
         Session::flash('success', 'Berhasil Disimpan');
 
-        return redirect('/admin/transaksi/detail/' . $id . '/bku');
+        return redirect('/staf/transaksi/detail/' . $id . '/bku');
     }
 
     public function deleteRekening($id)

@@ -12,7 +12,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form class="form-horizontal" action="/admin/transaksi/npd/edit/{{$data->id}}" method="post">
+            <form class="form-horizontal" action="/staf/transaksi/npd/edit/{{$data->id}}" method="post">
                 @csrf
               <div class="box-body">
                 <div class="form-group">
@@ -111,34 +111,11 @@
                     <input type="text" class="form-control" value="{{$data->subkegiatan}}" name="subkegiatan">
                   </div>
                 </div>
-                {{-- <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label">NIP PPTK</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" value="{{$data->nip_pptk}}" name="nip_pptk">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label">PPTK</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" value="{{$data->pptk}}" name="pptk">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label">NIP Pengguna</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" value="{{$data->nip_pengguna}}" name="nip_pengguna">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label">Pengguna Anggaran</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" value="{{$data->pengguna}}" name="pengguna">
-                  </div>
-                </div> --}}
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label"></label>
                   <div class="col-sm-10">
                     <button type="submit" class="btn btn-primary btn-flat btn-block"><i class="fa fa-send"></i> Simpan</button>
+                    <a href="/staf/transaksi/detail/{{$data->id}}/npd" class="btn btn-danger btn-flat btn-block"><i class="fa fa-arrow-left"></i> Kembali</a>
                     
                   </div>
                 </div>
