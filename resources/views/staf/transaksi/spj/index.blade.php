@@ -24,6 +24,8 @@
                   <th>SubKegiatan</th>
                   <th>PPTK</th>
                   <th>Pengguna Anggaran</th>
+                  {{-- <th>Status</th> --}}
+                  <th></th>
                   <th>Aksi</th>
                 </tr>
                 @foreach ($data as $key => $item)
@@ -33,8 +35,17 @@
                     <td>{{$item->subkegiatan}}</td>
                     <td>{{$item->pptk}}<br/>{{$item->nip_pptk}}</td>
                     <td>{{$item->pengguna}}<br/>{{$item->nip_pengguna}}</td>
+                    {{-- <td>
+                      Pembuatan SPJ : <br/>
+                      Verifikator : <br/>
+                      Bendahara Pengeluaran : <br/>
+                      Bendahara Pencairan :
+                    </td> --}}
                     <td>
-                      <a href="/staf/transaksi/detail/{{$item->id}}" class="btn btn-xs btn-flat  btn-success">Transaksi</a>
+                      <a href="/staf/transaksi/detail/{{$item->id}}" class="btn btn-xs btn-flat  btn-primary">Transaksi</a>
+                      <a href="/staf/transaksi/kirimspj/{{$item->id}}" class="btn btn-xs btn-flat  btn-success">Kirim Ke Verifikator</a>
+                    </td>
+                    <td>
                         <a href="/staf/transaksi/spj/edit/{{$item->id}}" class="btn btn-xs btn-flat  btn-success"><i class="fa fa-edit"></i></a>
                         <a href="/staf/transaksi/spj/delete/{{$item->id}}"
                             onclick="return confirm('Yakin ingin di hapus');"
