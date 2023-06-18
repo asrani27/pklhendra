@@ -40,8 +40,9 @@
                       <option value="">-pilih-</option>
                       <option value="admin">admin</option>
                       <option value="staf">staf</option>
-                      <option value="verifikator">verifikator</option>
-                      <option value="bendahara">bendahara keuangan</option>
+                      <option value="verifikator">Verifikator</option>
+                      <option value="bendahara_pengeluaran">Bendahara Pengeluaran</option>
+                      <option value="bendahara_pencairan">Bendahara Pencairan</option>
                     </select>
                   </div>
                 </div>

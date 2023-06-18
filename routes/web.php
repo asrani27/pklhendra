@@ -11,6 +11,8 @@ use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\BerandaController;
+use App\Http\Controllers\StafBKUController;
+use App\Http\Controllers\StafSPJController;
 use App\Http\Controllers\AdminBKUController;
 use App\Http\Controllers\AdminKrkController;
 use App\Http\Controllers\AdminNPDController;
@@ -31,6 +33,7 @@ use App\Http\Controllers\AdminKuitansiController;
 use App\Http\Controllers\BidangBerandaController;
 use App\Http\Controllers\BidangProgramController;
 use App\Http\Controllers\DaftarLayananController;
+use App\Http\Controllers\StafTransaksiController;
 use App\Http\Controllers\BidangKegiatanController;
 use App\Http\Controllers\SuperadminSkpdController;
 use App\Http\Controllers\AdminPermohonanController;
@@ -60,6 +63,57 @@ Route::group(['middleware' => ['auth', 'role:superadmin']], function () {
 Route::group(['middleware' => ['auth', 'role:staf']], function () {
     Route::prefix('staf')->group(function () {
         Route::get('beranda', [StafController::class, 'index']);
+
+        Route::get('transaksi/detail/{id}', [StafTransaksiController::class, 'index']);
+        Route::get('transaksi/detail/{id}/spj', [StafTransaksiController::class, 'spj']);
+        Route::get('transaksi/detail/{id}/bku', [StafTransaksiController::class, 'bku']);
+        Route::get('transaksi/detail/{id}/npd', [StafTransaksiController::class, 'npd']);
+        Route::get('transaksi/detail/{id}/sptjb', [StafTransaksiController::class, 'sptjb']);
+        Route::get('transaksi/detail/{id}/kuitansisatu', [StafTransaksiController::class, 'kuitansisatu']);
+
+        Route::get('transaksi/spj', [StafSPJController::class, 'index']);
+        Route::get('transaksi/spj/add', [StafSPJController::class, 'create']);
+        Route::post('transaksi/spj/add', [StafSPJController::class, 'store']);
+        Route::get('transaksi/spj/edit/{id}', [StafSPJController::class, 'edit']);
+        Route::post('transaksi/spj/edit/{id}', [StafSPJController::class, 'update']);
+        Route::get('transaksi/spj/delete/{id}', [StafSPJController::class, 'delete']);
+        Route::get('transaksi/spj/detail/{id}', [StafSPJController::class, 'detail']);
+        Route::post('transaksi/spj/detail/simpan/angka', [StafSPJController::class, 'storeDetail']);
+        Route::get('transaksi/spj/detail/delete/{id}', [StafSPJController::class, 'deleteDetail']);
+
+        Route::get('transaksi/npd/edit/{id}', [StafNPDController::class, 'edit']);
+        Route::post('transaksi/npd/edit/{id}', [StafNPDController::class, 'update']);
+
+        Route::get('transaksi/kuitansi/edit/{id}', [StafKuitansiController::class, 'edit']);
+        Route::post('transaksi/kuitansi/edit/{id}', [StafKuitansiController::class, 'update']);
+
+        Route::get('transaksi/sptjb/edit/{id}', [StafSPTJBController::class, 'edit']);
+        Route::post('transaksi/sptjb/edit/{id}', [StafSPTJBController::class, 'update']);
+
+        Route::post('transaksi/sptjb/penerima/{id}', [StafSPTJBController::class, 'penerima']);
+
+        Route::get('transaksi/spj/adduraian/{id}', [StafSPJController::class, 'adduraian']);
+        Route::post('transaksi/spj/adduraian/{id}', [StafSPJController::class, 'storeuraian']);
+
+        Route::get('transaksi/spj/print/{id}', [PrintController::class, 'spj']);
+        Route::get('transaksi/bku/print/{id}', [PrintController::class, 'bku']);
+        Route::get('transaksi/npd/print/{id}', [PrintController::class, 'npd']);
+        Route::get('transaksi/sptjb/print/{id}', [PrintController::class, 'sptjb']);
+        Route::get('transaksi/kuitansi/satu/print/{id}', [PrintController::class, 'kuitansi11']);
+
+        Route::get('transaksi/bku', [StafBKUController::class, 'index']);
+        Route::get('transaksi/bku/add', [StafBKUController::class, 'create']);
+        Route::post('transaksi/bku/add', [StafBKUController::class, 'store']);
+        Route::get('transaksi/bku/edit/{id}', [StafBKUController::class, 'edit']);
+        Route::post('transaksi/bku/edit/{id}', [StafBKUController::class, 'update']);
+        Route::get('transaksi/bku/delete/{id}', [StafBKUController::class, 'delete']);
+        Route::get('transaksi/bku/detail/{id}', [StafBKUController::class, 'detail']);
+        Route::get('transaksi/bku/addrekening/{id}', [StafBKUController::class, 'addRekening']);
+        Route::post('transaksi/bku/addrekening/{id}', [StafBKUController::class, 'storeRekening']);
+        Route::get('transaksi/bku/rekening/delete/{id}', [StafBKUController::class, 'deleteRekening']);
+        Route::get('transaksi/bku/detailrekening/delete/{id}', [StafBKUController::class, 'deleteDetailRekening']);
+        Route::post('transaksi/bku/detail/{id}/simpanuraian', [StafBKUController::class, 'simpanUraian']);
+        Route::post('transaksi/bku/detail/{id}/updateuraian', [StafBKUController::class, 'updateUraian']);
     });
 });
 Route::group(['middleware' => ['auth', 'role:verifikator']], function () {
@@ -142,28 +196,6 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
         Route::get('transaksi/bku/detailrekening/delete/{id}', [AdminBKUController::class, 'deleteDetailRekening']);
         Route::post('transaksi/bku/detail/{id}/simpanuraian', [AdminBKUController::class, 'simpanUraian']);
         Route::post('transaksi/bku/detail/{id}/updateuraian', [AdminBKUController::class, 'updateUraian']);
-        // Route::get('beranda/murni/buka', [AdminBerandaController::class, 'bukaMurni']);
-        // Route::get('beranda/murni/tutup', [AdminBerandaController::class, 'tutupMurni']);
-
-        // Route::get('beranda/pergeseran/buka', [AdminBerandaController::class, 'bukaPergeseran']);
-        // Route::get('beranda/pergeseran/tutup', [AdminBerandaController::class, 'tutupPergeseran']);
-
-        // Route::get('beranda/perubahan/buka', [AdminBerandaController::class, 'bukaPerubahan']);
-        // Route::get('beranda/perubahan/tutup', [AdminBerandaController::class, 'tutupPerubahan']);
-
-        // Route::get('beranda/realisasi/buka', [AdminBerandaController::class, 'bukaRealisasi']);
-        // Route::get('beranda/realisasi/tutup', [AdminBerandaController::class, 'tutupRealisasi']);
-
-        // Route::get('bidang', [AdminBidangController::class, 'index']);
-        // Route::get('bidang/add', [AdminBidangController::class, 'create']);
-        // Route::post('bidang/add', [AdminBidangController::class, 'store']);
-        // Route::get('bidang/edit/{id}', [AdminBidangController::class, 'edit']);
-        // Route::post('bidang/edit/{id}', [AdminBidangController::class, 'update']);
-        // Route::get('bidang/delete/{id}', [AdminBidangController::class, 'delete']);
-
-        // Route::get('bidang/createuser/{id}', [AdminBidangController::class, 'createuser']);
-        // Route::post('bidang/createuser/{id}', [AdminBidangController::class, 'storeuser']);
-        // Route::get('bidang/resetpass/{id}', [AdminBidangController::class, 'resetpass']);
     });
 });
 

@@ -10,8 +10,10 @@
         @include('layouts.menu_staf');
     @elseif(Auth::user()->hasRole('verifikator'))
         @include('layouts.menu_verifikator');
-    @elseif(Auth::user()->hasRole('bendahara'))
-        @include('layouts.menu_bendahara');
+    @elseif(Auth::user()->hasRole('bendahara_pengeluaran'))
+        @include('layouts.menu_bendahara_pengeluaran');
+    @elseif(Auth::user()->hasRole('bendahara_pencairan'))
+        @include('layouts.menu_bendahara_pencairan');
     @endif
     </ul>
 </section>
