@@ -13,13 +13,13 @@ class StafSPTJBController extends Controller
     public function edit($id)
     {
         $data = T_spj::find($id);
-        return view('admin.transaksi.sptjb.edit', compact('id', 'data'));
+        return view('staf.transaksi.sptjb.edit', compact('id', 'data'));
     }
     public function update(Request $req, $id)
     {
         $data = T_spj::find($id)->update($req->all());
         Session::flash('success', 'Berhasil Diupdate');
-        return redirect('/admin/transaksi/detail/' . $id . '/sptjb');
+        return redirect('/staf/transaksi/detail/' . $id . '/sptjb');
     }
 
     public function penerima(Request $req, $id)

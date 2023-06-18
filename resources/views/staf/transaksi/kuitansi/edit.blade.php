@@ -12,7 +12,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form class="form-horizontal" action="/admin/transaksi/kuitansi/edit/{{$data->id}}" method="post">
+            <form class="form-horizontal" action="/staf/transaksi/kuitansi/edit/{{$data->id}}" method="post">
                 @csrf
               <div class="box-body">
                 <div class="form-group">
@@ -33,6 +33,7 @@
                   <div class="col-sm-10">
                     <button type="submit" class="btn btn-primary btn-flat btn-block"><i class="fa fa-send"></i> Simpan</button>
                     
+                    <a href="/staf/transaksi/detail/{{$data->id}}/kuitansisatu" class="btn btn-danger btn-flat btn-block"><i class="fa fa-arrow-left"></i> Kembali</a>
                   </div>
                 </div>
               </div>
