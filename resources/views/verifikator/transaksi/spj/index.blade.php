@@ -24,6 +24,7 @@
                   <th>SubKegiatan</th>
                   <th>PPTK</th>
                   <th>Pengguna Anggaran</th>
+                  {{-- <th>Status</th> --}}
                   <th></th>
                   <th>Aksi</th>
                 </tr>
@@ -34,15 +35,15 @@
                     <td>{{$item->subkegiatan}}</td>
                     <td>{{$item->pptk}}<br/>{{$item->nip_pptk}}</td>
                     <td>{{$item->pengguna}}<br/>{{$item->nip_pengguna}}</td>
+                    {{-- <td>
+                      Pembuatan SPJ : <br/>
+                      Verifikator : <br/>
+                      Bendahara Pengeluaran : <br/>
+                      Bendahara Pencairan :
+                    </td> --}}
                     <td>
                       <a href="/staf/transaksi/detail/{{$item->id}}" class="btn btn-xs btn-flat  btn-primary">Transaksi</a>
-                      @if ($item->status_verifikator == 0)
-                      <a href="/staf/transaksi/spj/kirim/{{$item->id}}" class="btn btn-xs btn-flat  btn-success" onclick="return confirm('Yakin ingin dikirim?');"> Kirim Ke Verifikator</a>
-                      @elseif($item->status_verifikator == 1)
-                      Verifikator : diproses    
-                      @else
-                      
-                      @endif
+                      <a href="/staf/transaksi/kirimspj/{{$item->id}}" class="btn btn-xs btn-flat  btn-success">Kirim Ke Verifikator</a>
                     </td>
                     <td>
                         <a href="/staf/transaksi/spj/edit/{{$item->id}}" class="btn btn-xs btn-flat  btn-success"><i class="fa fa-edit"></i></a>

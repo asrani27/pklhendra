@@ -2,6 +2,7 @@
 
 
 <li class="header">TRANSAKSI</li>
+<li class="{{ (request()->is('verifikator/transaksi/spj')) ? 'active' : '' }}"><a href="/verifikator/transaksi/spj"><i class="fa fa-money"></i> <span>Verifikasi SPJ</span></a></li>
 
 
 <li class="header">SETTING</li>

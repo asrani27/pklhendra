@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\T_spj;
 use App\Models\M_koderek;
 use App\Models\T_spj_detail;
-use App\Models\T_spj_penerimaan;
 use Illuminate\Http\Request;
+use App\Models\T_spj_penerimaan;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class StafSPJController extends Controller
@@ -40,7 +41,9 @@ class StafSPJController extends Controller
     public function store(Request $req)
     {
 
-        $spj = T_spj::create($req->all());
+        $param = $req->all();
+        $param['user_id'] =  Auth::user()->id;
+        $spj = T_spj::create($param);
 
         $n = 8;
         for ($i = 1; $i <= $n; $i++) {
@@ -183,5 +186,12 @@ class StafSPJController extends Controller
         T_spj::find($id)->update($req->all());
         Session::flash('success', 'Berhasil Diupdate');
         return redirect('/staf/transaksi/spj');
+    }
+
+    public function kirimKeVerifikator($id)
+    {
+        T_spj::find($id)->update(['status_verifikator' => 1]);
+        Session::flash('success', 'Berhasil Dikirim ke verifikator');
+        return back();
     }
 }

@@ -3,7 +3,7 @@
 <li class="{{ (request()->is('admin/data/user*')) ? 'active' : '' }}"><a href="/admin/data/user"><i class="fa fa-users"></i> <span>Data User</span></a></li>
 
 <li class="header">TRANSAKSI</li>
-<li class="{{ (request()->is('admin/transaksi/spj')) ? 'active' : '' }}"><a href="/admin/transaksi/spj"><i class="fa fa-list"></i> <span>TRANSAKSI SPJ</span></a></li>
+{{-- <li class="{{ (request()->is('admin/transaksi/spj')) ? 'active' : '' }}"><a href="/admin/transaksi/spj"><i class="fa fa-list"></i> <span>TRANSAKSI SPJ</span></a></li> --}}
 {{-- <li class="{{ (request()->is('admin/transaksi/bku')) ? 'active' : '' }}"><a href="/admin/transaksi/bku"><i class="fa fa-list"></i> <span>BKU</span></a></li>
 <li class="{{ (request()->is('admin/transaksi/npd')) ? 'active' : '' }}"><a href="/admin/transaksi/npd"><i class="fa fa-list"></i> <span>NPD</span></a></li>
 <li class="{{ (request()->is('admin/transaksi/sptjb')) ? 'active' : '' }}"><a href="/admin/transaksi/sptjb"><i class="fa fa-list"></i> <span>SPTJB</span></a></li>
