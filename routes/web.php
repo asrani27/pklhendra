@@ -27,6 +27,7 @@ use App\Http\Controllers\StafTransaksiController;
 use App\Http\Controllers\SuperadminSkpdController;
 use App\Http\Controllers\VerifikatorSPJController;
 use App\Http\Controllers\SuperadminBerandaController;
+use App\Http\Controllers\VerifikatorTransaksiController;
 
 
 
@@ -106,6 +107,16 @@ Route::group(['middleware' => ['auth', 'role:verifikator']], function () {
     Route::prefix('verifikator')->group(function () {
         Route::get('beranda', [VerifikatorController::class, 'index']);
         Route::get('transaksi/spj', [VerifikatorSPJController::class, 'index']);
+        
+
+        Route::post('transaksi/spj/detail/simpan/comment', [VerifikatorTransaksiController::class, 'comment_spj']);
+
+        Route::get('transaksi/detail/{id}', [VerifikatorTransaksiController::class, 'index']);
+        Route::get('transaksi/detail/{id}/spj', [VerifikatorTransaksiController::class, 'spj']);
+        Route::get('transaksi/detail/{id}/bku', [VerifikatorTransaksiController::class, 'bku']);
+        Route::get('transaksi/detail/{id}/npd', [VerifikatorTransaksiController::class, 'npd']);
+        Route::get('transaksi/detail/{id}/sptjb', [VerifikatorTransaksiController::class, 'sptjb']);
+        Route::get('transaksi/detail/{id}/kuitansisatu', [VerifikatorTransaksiController::class, 'kuitansisatu']);
     });
 });
 Route::group(['middleware' => ['auth', 'role:bendahara']], function () {

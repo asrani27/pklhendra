@@ -25,6 +25,7 @@
                   <th>PPTK</th>
                   <th>Pengguna Anggaran</th>
                   <th></th>
+                  <th>Status</th>
                   <th>Aksi</th>
                 </tr>
                 @foreach ($data as $key => $item)
@@ -38,10 +39,31 @@
                       <a href="/staf/transaksi/detail/{{$item->id}}" class="btn btn-xs btn-flat  btn-primary">Transaksi</a>
                       @if ($item->status_verifikator == 0)
                       <a href="/staf/transaksi/spj/kirim/{{$item->id}}" class="btn btn-xs btn-flat  btn-success" onclick="return confirm('Yakin ingin dikirim?');"> Kirim Ke Verifikator</a>
+                      @endif
+                    </td>
+                    <td>
+                      @if ($item->status_verifikator == 0)
+                      Verifikator : -    
                       @elseif($item->status_verifikator == 1)
-                      Verifikator : diproses    
-                      @else
-                      
+                      Verifikator : diproses   
+                      @elseif($item->status_verifikator == 2)
+                      Verifikator : selesai
+                      @endif
+                      <br/>
+                      @if ($item->status_pengeluaran == 0)
+                      Pengeluaran : -    
+                      @elseif($item->status_pengeluaran == 1)
+                      Pengeluaran : diproses   
+                      @elseif($item->status_pengeluaran == 2)
+                      Pengeluaran : selesai
+                      @endif
+                      <br/>
+                      @if ($item->status_pencairan == 0)
+                      Pencairan : -    
+                      @elseif($item->status_pencairan == 1)
+                      Pencairan : diproses   
+                      @elseif($item->status_pencairan == 2)
+                      Pencairan : selesai
                       @endif
                     </td>
                     <td>

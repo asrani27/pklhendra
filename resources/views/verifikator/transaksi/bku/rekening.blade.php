@@ -6,7 +6,7 @@
 <section class="content">
     <div class="row">
         <div class="col-xs-12">
-          @include('staf.transaksi.menu')
+          @include('verifikator.transaksi.menu')
           <br/>
           <br/>
           <div class="box box-primary">
@@ -14,9 +14,6 @@
               <h3 class="box-title"><i class="fa fa-clipboard"></i> BUKU KAS UMUM - PENGELUARAN</h3>
     
               <div class="box-tools">
-                <a href="/staf/transaksi/bku/addrekening/{{$data->id}}" class="btn btn-sm btn-primary btn-flat"><i class="fa fa-plus-circle"></i> Rekening</a>
-                
-                <a href="/staf/transaksi/bku/print/{{$id}}" class="btn btn-sm btn-danger btn-flat" target="_blank"><i class="fa fa-file"></i> PRINT</a>
               </div>
             </div>
             <!-- /.box-header -->
@@ -34,9 +31,8 @@
                 </tr>
                 @foreach ($rekening as $item)
                     <tr  style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:10px;">
-                      <td rowspan="{{$item->detailRekening->count() + 1}}"  class="text-center"><a href="/staf/transaksi/bku/rekening/delete/{{$item->id}}"
-                        onclick="return confirm('Yakin ingin di hapus');"
-                        class="btn btn-xs btn-flat"><i class="fa fa-trash"></i></a>
+                      <td rowspan="{{$item->detailRekening->count() + 1}}"  class="text-center">
+                        
                       </td>
                       <td class="text-center" rowspan="{{$item->detailRekening->count() + 1}}">
                         @if ($item->tanggal == null)
@@ -47,8 +43,7 @@
                       </td>
                       <td class="text-center" rowspan="{{$item->detailRekening->count() + 1}}">{{koderekening($item->koderek->kode1,$item->koderek->kode2,$item->koderek->kode3,$item->koderek->kode4,$item->koderek->kode5,$item->koderek->kode6)}}
                       <br/>
-                        <a href="#"
-                        class="btn btn-xs btn-flat tambah-uraian" data-bku_rekening_id="{{$item->id}}"><i class="fa fa-plus-circle"></i></a>
+                      
                       </td>
                       @foreach ($item->detailrekening as $item2)
                       <tr style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:10px;">
@@ -65,9 +60,7 @@
                           <a href="#"
                             class="btn btn-xs btn-flat edit-uraian" data-bku_rekening_detail_id="{{$item2->id}}" data-uraian="{{$item2->uraian}}" data-penerimaan="{{$item2->penerimaan}}" data-pajak="{{$item2->pajak}}"><i class="fa fa-edit"></i></a>
 
-                          <a href="/staf/transaksi/bku/detailrekening/delete/{{$item2->id}}"
-                          onclick="return confirm('Yakin ingin di hapus');"
-                          class="btn btn-xs btn-flat"><i class="fa fa-trash"></i></a>
+                            
                         </td>
                       </tr>
                       @endforeach
@@ -108,7 +101,7 @@
               <span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title"><i class="ion ion-clipboard"></i> Tambah Uraian</h4>
           </div>
-          <form method="post" action="/staf/transaksi/bku/detail/{{$id}}/simpanuraian">
+          <form method="post" action="/verifikator/transaksi/bku/detail/{{$id}}/simpanuraian">
           <div class="modal-body">
               @csrf
               
@@ -151,7 +144,7 @@
               <span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title"><i class="ion ion-clipboard"></i> Edit Uraian</h4>
           </div>
-          <form method="post" action="/staf/transaksi/bku/detail/{{$id}}/updateuraian">
+          <form method="post" action="/verifikator/transaksi/bku/detail/{{$id}}/updateuraian">
           <div class="modal-body">
               @csrf
               

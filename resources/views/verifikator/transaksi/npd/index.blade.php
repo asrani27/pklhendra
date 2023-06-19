@@ -6,7 +6,7 @@
 <section class="content">
     <div class="row">
         <div class="col-xs-12">
-          @include('staf.transaksi.menu')
+          @include('verifikator.transaksi.menu')
           <br/>
           <br/>
             <div class="box box-primary">
@@ -18,7 +18,7 @@
               <div class="box-tools">
                 
                 
-                <a href="/staf/transaksi/npd/edit/{{$id}}" class="btn btn-sm btn-primary btn-flat"><i class="fa fa-edit"></i> EDIT</a>
+                <a href="/verifikator/transaksi/npd/edit/{{$id}}" class="btn btn-sm btn-primary btn-flat"><i class="fa fa-edit"></i> EDIT</a>
               </div>
               </div>
               <!-- /.box-header -->
@@ -58,7 +58,7 @@
               <div class="box-tools">
                 
                 
-                <a href="/staf/transaksi/npd/print/{{$id}}" target="_blank" class="btn btn-sm btn-danger btn-flat"><i class="fa fa-file"></i> PRINT</a>
+                <a href="/verifikator/transaksi/npd/print/{{$id}}" target="_blank" class="btn btn-sm btn-danger btn-flat"><i class="fa fa-file"></i> PRINT</a>
               </div>
             </div>
             <!-- /.box-header -->
@@ -130,7 +130,7 @@
               <span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title"><i class="ion ion-clipboard"></i> Tambah Uraian</h4>
           </div>
-          <form method="post" action="/staf/transaksi/bku/detail/{{$id}}/simpanuraian">
+          <form method="post" action="/verifikator/transaksi/bku/detail/{{$id}}/simpanuraian">
           <div class="modal-body">
               @csrf
               
@@ -168,7 +168,7 @@
               <span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title"><i class="ion ion-clipboard"></i> Edit Uraian</h4>
           </div>
-          <form method="post" action="/staf/transaksi/bku/detail/{{$id}}/updateuraian">
+          <form method="post" action="/verifikator/transaksi/bku/detail/{{$id}}/updateuraian">
           <div class="modal-body">
               @csrf
               

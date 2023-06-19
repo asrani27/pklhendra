@@ -11,7 +11,7 @@
               <h3 class="box-title"><i class="fa fa-clipboard"></i> Data Transaksi</h3>
     
               <div class="box-tools">
-                <a href="/staf/transaksi/spj/add" class="btn btn-sm btn-primary btn-flat "><i class="fa fa-plus-circle"></i> Tambah SPJ</a>
+                
               </div>
             </div>
             <!-- /.box-header -->
@@ -20,36 +20,53 @@
                 <tbody>
                 <tr>
                   <th class="text-center">No</th>
+                  <th>Nama Staf</th>
                   <th>Bulan Tahun</th>
                   <th>SubKegiatan</th>
                   <th>PPTK</th>
                   <th>Pengguna Anggaran</th>
-                  {{-- <th>Status</th> --}}
                   <th></th>
-                  <th>Aksi</th>
+                  <th>Status</th>
                 </tr>
                 @foreach ($data as $key => $item)
                 <tr style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:10px;">
                     <td class="text-center">{{$data->firstItem() + $key}}</td>
+                    <td>{{$item->user->name}}</td>
                     <td>{{$item->bulan}} {{$item->tahun}}</td>
                     <td>{{$item->subkegiatan}}</td>
                     <td>{{$item->pptk}}<br/>{{$item->nip_pptk}}</td>
                     <td>{{$item->pengguna}}<br/>{{$item->nip_pengguna}}</td>
-                    {{-- <td>
-                      Pembuatan SPJ : <br/>
-                      Verifikator : <br/>
-                      Bendahara Pengeluaran : <br/>
-                      Bendahara Pencairan :
-                    </td> --}}
                     <td>
-                      <a href="/staf/transaksi/detail/{{$item->id}}" class="btn btn-xs btn-flat  btn-primary">Transaksi</a>
-                      <a href="/staf/transaksi/kirimspj/{{$item->id}}" class="btn btn-xs btn-flat  btn-success">Kirim Ke Verifikator</a>
+                      <a href="/verifikator/transaksi/detail/{{$item->id}}" class="btn btn-xs btn-flat  btn-primary">Transaksi</a><br/>
+                      @if ($item->status_verifikator == 1)
+                      <a href="/verifikator/transaksi/spj/kirim/{{$item->id}}" class="btn btn-xs btn-flat  btn-success" onclick="return confirm('Yakin ingin dikirim?');"> Kirim Ke Pengeluaran</a><br/>
+                      @endif
+                      <a href="/verifikator/transaksi/spj/tolak/{{$item->id}}" class="btn btn-xs btn-flat  btn-danger" onclick="return confirm('Yakin ingin dikembalikan?');"> Kembalikan Ke Staff</a>
                     </td>
                     <td>
-                        <a href="/staf/transaksi/spj/edit/{{$item->id}}" class="btn btn-xs btn-flat  btn-success"><i class="fa fa-edit"></i></a>
-                        <a href="/staf/transaksi/spj/delete/{{$item->id}}"
-                            onclick="return confirm('Yakin ingin di hapus');"
-                            class="btn btn-xs btn-flat  btn-danger"><i class="fa fa-trash"></i></a>
+                      @if ($item->status_verifikator == 0)
+                      Verifikator : -    
+                      @elseif($item->status_verifikator == 1)
+                      Verifikator : diproses   
+                      @elseif($item->status_verifikator == 2)
+                      Verifikator : selesai
+                      @endif
+                      <br/>
+                      @if ($item->status_pengeluaran == 0)
+                      Pengeluaran : -    
+                      @elseif($item->status_pengeluaran == 1)
+                      Pengeluaran : diproses   
+                      @elseif($item->status_pengeluaran == 2)
+                      Pengeluaran : selesai
+                      @endif
+                      <br/>
+                      @if ($item->status_pencairan == 0)
+                      Pencairan : -    
+                      @elseif($item->status_pencairan == 1)
+                      Pencairan : diproses   
+                      @elseif($item->status_pencairan == 2)
+                      Pencairan : selesai
+                      @endif
                     </td>
                 </tr>
                 @endforeach

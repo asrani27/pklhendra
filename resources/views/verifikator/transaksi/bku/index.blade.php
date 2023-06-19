@@ -11,7 +11,7 @@
               <h3 class="box-title"><i class="fa fa-clipboard"></i> Data BKU</h3>
     
               <div class="box-tools">
-                <a href="/staf/transaksi/bku/add" class="btn btn-sm btn-primary btn-flat "><i class="fa fa-plus-circle"></i> Tambah BKU</a>
+                <a href="/verifikator/transaksi/bku/add" class="btn btn-sm btn-primary btn-flat "><i class="fa fa-plus-circle"></i> Tambah BKU</a>
               </div>
             </div>
             <!-- /.box-header -->
@@ -32,9 +32,9 @@
                     <td>{{$item->pptk}}</td>
                     <td>{{$item->pengguna}}</td>
                     <td>
-                      <a href="/staf/transaksi/bku/detail/{{$item->id}}" class="btn btn-xs btn-flat  btn-success">detail</a>
-                        <a href="/staf/transaksi/bku/edit/{{$item->id}}" class="btn btn-xs btn-flat  btn-success"><i class="fa fa-edit"></i></a>
-                        <a href="/staf/transaksi/bku/delete/{{$item->id}}"
+                      <a href="/verifikator/transaksi/bku/detail/{{$item->id}}" class="btn btn-xs btn-flat  btn-success">detail</a>
+                        <a href="/verifikator/transaksi/bku/edit/{{$item->id}}" class="btn btn-xs btn-flat  btn-success"><i class="fa fa-edit"></i></a>
+                        <a href="/verifikator/transaksi/bku/delete/{{$item->id}}"
                             onclick="return confirm('Yakin ingin di hapus');"
                             class="btn btn-xs btn-flat  btn-danger"><i class="fa fa-trash"></i></a>
                     </td>

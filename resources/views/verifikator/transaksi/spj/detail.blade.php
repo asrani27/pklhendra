@@ -6,7 +6,7 @@
 <section class="content">
     <div class="row">
         <div class="col-xs-12">
-          @include('staf.transaksi.menu')
+          @include('verifikator.transaksi.menu')
           <br/>
           <br/>
           <div class="box box-primary">
@@ -14,8 +14,8 @@
               <h3 class="box-title"><i class="fa fa-clipboard"></i> DETAIL SPJ</h3>
     
               <div class="box-tools">
-                <a href="/staf/transaksi/spj/adduraian/{{$data->id}}" class="btn btn-sm btn-primary btn-flat"><i class="fa fa-plus-circle"></i> Uraian</a>
-                <a href="/staf/transaksi/spj/print/{{$id}}" class="btn btn-sm btn-danger btn-flat" target="_blank"><i class="fa fa-file"></i> PRINT</a>
+                {{-- <a href="/verifikator/transaksi/spj/adduraian/{{$data->id}}" class="btn btn-sm btn-primary btn-flat"><i class="fa fa-plus-circle"></i> Uraian</a>
+                <a href="/verifikator/transaksi/spj/print/{{$id}}" class="btn btn-sm btn-danger btn-flat" target="_blank"><i class="fa fa-file"></i> PRINT</a> --}}
               </div>
             </div>
             <!-- /.box-header -->
@@ -31,6 +31,7 @@
                   <th class="text-center" colspan=3>SPJ - UP/GU/TU</th>
                   <th class="text-center" rowspan=2>Jumlah SPJ <br/>(LS+UP/GU/TU) <br/>s.d. Bln ini</th>
                   <th class="text-center" rowspan=2>Sisa Pagu <br/>Anggaran</th>
+                  <th class="text-center" rowspan=3>Comment Verifikator</th>
                 </tr>
                 <tr style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:8px;background-color:silver">
                 
@@ -65,42 +66,33 @@
                 <tr style="font-size: 10px">
                   
                     <td>{{koderekening($item->koderek->kode1,$item->koderek->kode2,$item->koderek->kode3,$item->koderek->kode4,$item->koderek->kode5,$item->koderek->kode6)}} 
-                      <a href="/staf/transaksi/spj/detail/delete/{{$item->id}}"
-                        onclick="return confirm('Yakin ingin di hapus');"
-                        class="btn btn-xs btn-flat"><i class="fa fa-trash"></i></a>
+                     
                       </td>
                     <td>{{$item->koderek->uraian}}</td>
-                    <td style="text-align: right">
-                      <a href="#" class="isiangka" data-id="{{$item->id}}" data-angka="{{$item->ja}}" data-kolom="3">{{number_format($item->ja)}}</a>
+                    <td style="text-align: right">{{number_format($item->ja)}}
                     </td>
-                    <td style="text-align: right">
-                      <a href="#" class="isiangka" data-id="{{$item->id}}" data-angka="{{$item->ls_gaji1}}" data-kolom="4">{{number_format($item->ls_gaji1)}}</a>
+                    <td style="text-align: right">{{number_format($item->ls_gaji1)}}
                     </td>
-                    <td style="text-align: right">
-                      <a href="#" class="isiangka" data-id="{{$item->id}}" data-angka="{{$item->ls_gaji2}}" data-kolom="5">{{number_format($item->ls_gaji2)}}</a>
+                    <td style="text-align: right">{{number_format($item->ls_gaji2)}}
                       
                     </td>
                     <td style="text-align: right">
                       {{number_format($item->ls_gaji1 + $item->ls_gaji2)}}
                       
                     </td>
-                    <td style="text-align: right">
-                      <a href="#" class="isiangka" data-id="{{$item->id}}" data-angka="{{$item->ls_bj1}}" data-kolom="7">{{number_format($item->ls_bj1)}}</a>
+                    <td style="text-align: right">{{number_format($item->ls_bj1)}}
                       
                     </td>
-                    <td style="text-align: right">
-                      <a href="#" class="isiangka" data-id="{{$item->id}}" data-angka="{{$item->ls_bj2}}" data-kolom="8">{{number_format($item->ls_bj2)}}</a>
+                    <td style="text-align: right">{{number_format($item->ls_bj2)}}
                       
                     </td>
                     <td style="text-align: right">
                       {{number_format($item->ls_bj1 + $item->ls_bj2)}}
                     </td>
-                    <td style="text-align: right">
-                      <a href="#" class="isiangka" data-id="{{$item->id}}" data-angka="{{$item->gu1}}" data-kolom="10">{{number_format($item->gu1)}}</a>
+                    <td style="text-align: right">{{number_format($item->gu1)}}
                     
                     </td>
-                    <td style="text-align: right">
-                      <a href="#" class="isiangka" data-id="{{$item->id}}" data-angka="{{$item->gu2}}" data-kolom="11">{{number_format($item->gu2)}}</a>
+                    <td style="text-align: right">{{number_format($item->gu2)}}
                      
                     </td>
                     <td style="text-align: right">
@@ -113,10 +105,13 @@
                     <td style="text-align: right">
                       {{number_format($item->sisa)}}
                     </td>
+                    <td>
+                      <a href="#" class="btn btn-xs comment-verifikator btn-flat" data-id="{{$item->id}}" data-comment_verifikator="{{$item->comment_verifikator}}"><i class="fa fa-edit"></i></a> {{$item->comment_verifikator}}
+                    </td>
                     {{-- <td>
-                      <a href="/staf/transaksi/spj/detail/{{$item->id}}" class="btn btn-xs btn-flat  btn-success">detail</a>
-                        <a href="/staf/transaksi/spj/edit/{{$item->id}}" class="btn btn-xs btn-flat  btn-success"><i class="fa fa-edit"></i></a>
-                        <a href="/staf/transaksi/spj/delete/{{$item->id}}"
+                      <a href="/verifikator/transaksi/spj/detail/{{$item->id}}" class="btn btn-xs btn-flat  btn-success">detail</a>
+                        <a href="/verifikator/transaksi/spj/edit/{{$item->id}}" class="btn btn-xs btn-flat  btn-success"><i class="fa fa-edit"></i></a>
+                        <a href="/verifikator/transaksi/spj/delete/{{$item->id}}"
                             onclick="return confirm('Yakin ingin di hapus');"
                             class="btn btn-xs btn-flat  btn-danger"><i class="fa fa-trash"></i></a>
                     </td> --}}
@@ -304,24 +299,24 @@
           </div>
           <!-- /.box -->
         </div>
+
     </div>
 
-    <div class="modal fade" id="modal-editangka">
+    <div class="modal fade" id="modal-editcomment">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header bg-purple">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title"><i class="ion ion-clipboard"></i> Angka</h4>
+            <h4 class="modal-title"><i class="ion ion-clipboard"></i> Comment Verifikator</h4>
           </div>
-          <form method="post" action="/staf/transaksi/spj/detail/simpan/angka">
+          <form method="post" action="/verifikator/transaksi/spj/detail/simpan/comment">
           <div class="modal-body">
               @csrf
               
               <div class="form-group">
-                  <label>Angka</label>
-                  <input type="text" id="angka" class="form-control" name="angka">
-                  <input type="hidden" id="kolom" class="form-control" name="kolom">
+                  <label>Deskripsi</label>
+                  <input type="text" id="comment-verifikator" class="form-control" name="comment_verifikator">
                   <input type="hidden" id="detail_id" class="form-control" name="detail_id" readonly>
               </div>
               
@@ -343,11 +338,10 @@
 @push('js')
 
 <script>
-  $(document).on('click', '.isiangka', function() {
+  $(document).on('click', '.comment-verifikator', function() {
   $('#detail_id').val($(this).data('id'));
-  $('#angka').val($(this).data('angka'));
-  $('#kolom').val($(this).data('kolom'));
-  $("#modal-editangka").modal();
+  $('#comment-verifikator').val($(this).data('comment_verifikator'));
+  $("#modal-editcomment").modal();
 });
 </script>
 @endpush

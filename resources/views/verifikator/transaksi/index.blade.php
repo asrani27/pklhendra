@@ -5,7 +5,7 @@
 @section('content')
 <section class="content">
   <div class="row">
-    @include('staf.transaksi.menu')
+    @include('verifikator.transaksi.menu')
   </div>
 </section>
 @endsection

@@ -6,7 +6,7 @@
 <section class="content">
     <div class="row">
         <div class="col-xs-12">
-          @include('staf.transaksi.menu')
+          @include('verifikator.transaksi.menu')
           <br/>
           <br/>
 
@@ -17,7 +17,7 @@
               <h3 class="box-title">KUITANSI SATU SATU</h3>
 
             <div class="box-tools">
-              <a href="/staf/transaksi/kuitansi/edit/{{$id}}" class="btn btn-sm btn-primary btn-flat"><i class="fa fa-edit"></i> EDIT</a>
+              <a href="/verifikator/transaksi/kuitansi/edit/{{$id}}" class="btn btn-sm btn-primary btn-flat"><i class="fa fa-edit"></i> EDIT</a>
             </div>
             </div>
             <!-- /.box-header -->
@@ -73,7 +73,7 @@
                           {{number_format($item->pengeluaran)}}
                       </td>
                      <td  class="text-center">  
-                      <a href="/staf/transaksi/kuitansi/satu/print/{{$item->id}}" target="_blank" class="btn btn-xs btn-primary btn-flat"><i class="fa fa-file"></i> Kuitansi</a> 
+                      <a href="/verifikator/transaksi/kuitansi/satu/print/{{$item->id}}" target="_blank" class="btn btn-xs btn-primary btn-flat"><i class="fa fa-file"></i> Kuitansi</a> 
                       </td>
                       
                     </tr>
