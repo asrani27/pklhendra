@@ -6,14 +6,14 @@
 
 <li class="header">LAPORAN</li>
 <li class="{{ (request()->is('staf/laporan/spj')) ? 'active' : '' }}"><a href="/staf/laporan/spj"><i class="fa fa-file"></i> <span>Cetak SPJ Administratif</span></a></li>
-<li class="{{ (request()->is('staf/laporan/spj')) ? 'active' : '' }}"><a href="/staf/laporan/bku"><i class="fa fa-file"></i> <span>Cetak BKU</span></a></li>
-<li class="{{ (request()->is('staf/laporan/spj')) ? 'active' : '' }}"><a href="/staf/laporan/npd"><i class="fa fa-file"></i> <span>Cetak NPD</span></a></li>
-<li class="{{ (request()->is('staf/laporan/spj')) ? 'active' : '' }}"><a href="/staf/laporan/sptjb"><i class="fa fa-file"></i> <span>Cetak SPTJB</span></a></li>
-<li class="{{ (request()->is('staf/laporan/spj')) ? 'active' : '' }}"><a href="/staf/laporan/kwitansi"><i class="fa fa-file"></i> <span>Cetak Kwitansi</span></a></li>
-<li class="{{ (request()->is('staf/laporan/spj')) ? 'active' : '' }}"><a href="/staf/laporan/ttjkn"><i class="fa fa-file"></i> <span>Cetak Tanda Terima JKN</span></a></li>
-<li class="{{ (request()->is('staf/laporan/spj')) ? 'active' : '' }}"><a href="/staf/laporan/ttjkk"><i class="fa fa-file"></i> <span>Cetak Tanda Terima JKK</span></a></li>
-<li class="{{ (request()->is('staf/laporan/spj')) ? 'active' : '' }}"><a href="/staf/laporan/ttjkm"><i class="fa fa-file"></i> <span>Cetak Tanda Terima JKM</span></a></li>
-<li class="{{ (request()->is('staf/laporan/spj')) ? 'active' : '' }}"><a href="/staf/laporan/nodin"><i class="fa fa-file"></i> <span>Cetak Nota Dinas</span></a></li>
+<li class="{{ (request()->is('staf/laporan/bku')) ? 'active' : '' }}"><a href="/staf/laporan/bku"><i class="fa fa-file"></i> <span>Cetak BKU</span></a></li>
+<li class="{{ (request()->is('staf/laporan/npd')) ? 'active' : '' }}"><a href="/staf/laporan/npd"><i class="fa fa-file"></i> <span>Cetak NPD</span></a></li>
+<li class="{{ (request()->is('staf/laporan/sptjb')) ? 'active' : '' }}"><a href="/staf/laporan/sptjb"><i class="fa fa-file"></i> <span>Cetak SPTJB</span></a></li>
+<li class="{{ (request()->is('staf/laporan/kwitansi')) ? 'active' : '' }}"><a href="/staf/laporan/kwitansi"><i class="fa fa-file"></i> <span>Cetak Kwitansi</span></a></li>
+<li class="{{ (request()->is('staf/laporan/jkn')) ? 'active' : '' }}"><a href="/staf/laporan/jkn"><i class="fa fa-file"></i> <span>Cetak Tanda Terima JKN</span></a></li>
+<li class="{{ (request()->is('staf/laporan/jkk')) ? 'active' : '' }}"><a href="/staf/laporan/jkk"><i class="fa fa-file"></i> <span>Cetak Tanda Terima JKK</span></a></li>
+<li class="{{ (request()->is('staf/laporan/jkm')) ? 'active' : '' }}"><a href="/staf/laporan/jkm"><i class="fa fa-file"></i> <span>Cetak Tanda Terima JKM</span></a></li>
+<li class="{{ (request()->is('staf/laporan/nodin')) ? 'active' : '' }}"><a href="/staf/laporan/nodin"><i class="fa fa-file"></i> <span>Cetak Nota Dinas</span></a></li>
 
 <li class="header">SETTING</li>
 <li class="{{ (request()->is('logout')) ? 'active' : '' }}"><a href="/logout"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>

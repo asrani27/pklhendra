@@ -17,6 +17,7 @@ use App\Http\Controllers\BendaharaController;
 use App\Http\Controllers\StafSPTJBController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\AdminSPTJBController;
+use App\Http\Controllers\StafLaporanController;
 use App\Http\Controllers\VerifikatorController;
 use App\Http\Controllers\AdminBerandaController;
 use App\Http\Controllers\AdminKoderekController;
@@ -101,13 +102,33 @@ Route::group(['middleware' => ['auth', 'role:staf']], function () {
         Route::get('transaksi/bku/detailrekening/delete/{id}', [StafBKUController::class, 'deleteDetailRekening']);
         Route::post('transaksi/bku/detail/{id}/simpanuraian', [StafBKUController::class, 'simpanUraian']);
         Route::post('transaksi/bku/detail/{id}/updateuraian', [StafBKUController::class, 'updateUraian']);
+
+        Route::get('laporan/spj', [StafLaporanController::class, 'spj']);
+        Route::get('laporan/bku', [StafLaporanController::class, 'bku']);
+        Route::get('laporan/npd', [StafLaporanController::class, 'npd']);
+        Route::get('laporan/sptjb', [StafLaporanController::class, 'sptjb']);
+        Route::get('laporan/kwitansi', [StafLaporanController::class, 'kwitansi']);
+        Route::get('laporan/jkn', [StafLaporanController::class, 'jkn']);
+        Route::get('laporan/jkk', [StafLaporanController::class, 'jkk']);
+        Route::get('laporan/jkm', [StafLaporanController::class, 'jkm']);
+        Route::get('laporan/nodin', [StafLaporanController::class, 'nodin']);
+
+        Route::get('laporan/spj/cetak/{id}', [PrintController::class, 'spj']);
+        Route::get('laporan/bku/cetak/{id}', [PrintController::class, 'bku']);
+        Route::get('laporan/npd/cetak/{id}', [PrintController::class, 'npd']);
+        Route::get('laporan/sptjb/cetak/{id}', [PrintController::class, 'sptjb']);
+        Route::get('laporan/kwitansi/cetak/{id}', [PrintController::class, 'kwitansi']);
+        Route::get('laporan/jkn/cetak/{id}', [StafLaporanController::class, 'jknCetak']);
+        Route::get('laporan/jkk/cetak/{id}', [StafLaporanController::class, 'jkkCetak']);
+        Route::get('laporan/jkm/cetak/{id}', [StafLaporanController::class, 'jkmCetak']);
+        Route::get('laporan/nodin/cetak/{id}', [StafLaporanController::class, 'nodinCetak']);
     });
 });
 Route::group(['middleware' => ['auth', 'role:verifikator']], function () {
     Route::prefix('verifikator')->group(function () {
         Route::get('beranda', [VerifikatorController::class, 'index']);
         Route::get('transaksi/spj', [VerifikatorSPJController::class, 'index']);
-        
+
 
         Route::post('transaksi/spj/detail/simpan/comment', [VerifikatorTransaksiController::class, 'comment_spj']);
 
