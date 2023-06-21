@@ -33,7 +33,7 @@
                     <td>{{$item->pengguna}}<br/>{{$item->nip_pengguna}}</td>
                     
                     <td>
-                        <a href="/staf/laporan/spj/cetak/{{$item->id}}"  class="btn btn-sm btn-flat btn-danger" target="_blank"><i class="fa fa-print"></i> PRINT</a>
+                        <a href="/staf/laporan/bku/cetak/{{$item->id}}"  class="btn btn-sm btn-flat btn-danger" target="_blank"><i class="fa fa-print"></i> PRINT</a>
                     </td>
                 </tr>
                 @endforeach
