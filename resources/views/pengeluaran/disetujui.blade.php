@@ -21,11 +21,46 @@
                   <th class="text-center">No</th>
                   <th class="text-center" style="vertical-align: middle">Tanggal</th>
                   <th class="text-center" style="vertical-align: middle">Rekening</th>
+                  <th class="text-center" style="vertical-align: middle">Bukti</th>
                   <th class="text-center" style="vertical-align: middle">Uraian</th>
                   <th class="text-center">Penerimaan</th>
                   <th class="text-center">Pengeluaran</th>
+                  <th class="text-center">Nama Penerima / Nama Bank</th>
+                  <th class="text-center">ID Billing</th>
+                  <th class="text-center">NTPN</th>
+                  <th class="text-center">Keterangan</th>
                 </tr>
-                @foreach ($rekening as $item)
+                @foreach ($data as $item)
+                <tr  style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:10px;background-color:#a7c2fa">
+                    <td></td>
+                    <td>{{$item->tanggal}}</td>
+                    <td></td>
+                    <td>{{$item->subkegiatan}}</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                @foreach ($rekening->where('t_spj_id', $item->id) as $item2)
+                <tr  style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:10px;">
+                    <td></td>
+                    <td></td>
+                    <td>{{koderekening($item2->rekening->koderek->kode1,$item2->rekening->koderek->kode2,$item2->rekening->koderek->kode3,$item2->rekening->koderek->kode4,$item2->rekening->koderek->kode5,$item2->rekening->koderek->kode6)}}</td>
+                    <td></td>
+                    <td>{{$item2->uraian}}</td>
+                    <td>{{number_format($item2->penerimaan)}}</td>
+                    <td>{{number_format($item2->pengeluaran)}}</td>
+                    <td>{{$item2->penerima}}</td>
+                    <td>{{$item2->id_billing}}</td>
+                    <td>{{$item2->keterangan}}</td>
+                    <td></td>
+                </tr>
+                @endforeach
+                @endforeach
+                {{-- @foreach ($rekening as $item)
                     <tr  style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:10px;">
                       <td rowspan="{{$item->detailRekening->count() + 1}}"  class="text-center">
                         
@@ -37,12 +72,17 @@
                         {{\Carbon\Carbon::parse($item->tanggal)->format('d-m-Y')}}
                         @endif
                       </td>
+                      
                       <td class="text-center" rowspan="{{$item->detailRekening->count() + 1}}">{{koderekening($item->koderek->kode1,$item->koderek->kode2,$item->koderek->kode3,$item->koderek->kode4,$item->koderek->kode5,$item->koderek->kode6)}}
                       <br/>
-                      
+        
                       </td>
                       @foreach ($item->detailrekening as $item2)
                       <tr style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:10px;">
+                        
+                        <td >
+                            Nomor BKU
+                          </td>
                         <td >
                           {{$item2->uraian}}
                         </td>
@@ -52,22 +92,26 @@
                         <td style="text-align: right">
                           {{number_format($item2->pengeluaran)}}
                         </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                       </tr>
                       @endforeach
                     </tr>
                 @endforeach
-                
+                 --}}
               </tbody>
-              <tfoot>
+              {{-- <tfoot>
                 <tr style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:10px; background-color:silver;">
                   <td></td>
                   <td></td>
                   <td></td>
                   <td>Total Bulan Ini</td>
-                  {{-- <td style="text-align: right">{{number_format($total->sum('penerimaan'))}}</td>
-                  <td style="text-align: right">{{number_format($total->sum('pengeluaran'))}}</td> --}}
+                  <td style="text-align: right">{{number_format($total->sum('penerimaan'))}}</td>
+                  <td style="text-align: right">{{number_format($total->sum('pengeluaran'))}}</td>
                 </tr>
-              </tfoot>
+              </tfoot> --}}
             </table>
             </div>
             <!-- /.box-body -->

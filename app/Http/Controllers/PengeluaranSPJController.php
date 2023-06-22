@@ -54,8 +54,9 @@ class PengeluaranSPJController extends Controller
             return back();
         }
 
-        $rekening = T_bku_rekening::where('t_spj_id', $id_spj)->get();
+        $rekening = T_bku_rekening_detail::where('t_spj_id', $id_spj)->get();
+        $data = T_spj::where('status_pengeluaran', 2)->orderBy('tanggal', 'ASC')->get();
         // $total = T_bku_rekening_detail::where('t_spj_id', $id)->get();
-        return view('pengeluaran.disetujui', compact('rekening'));
+        return view('pengeluaran.disetujui', compact('rekening', 'data'));
     }
 }
