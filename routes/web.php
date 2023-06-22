@@ -28,6 +28,7 @@ use App\Http\Controllers\StafKuitansiController;
 use App\Http\Controllers\AdminKuitansiController;
 use App\Http\Controllers\StafTransaksiController;
 use App\Http\Controllers\PengeluaranSPJController;
+use App\Http\Controllers\StafTTController;
 use App\Http\Controllers\SuperadminSkpdController;
 use App\Http\Controllers\VerifikatorSPJController;
 use App\Http\Controllers\SuperadminBerandaController;
@@ -60,6 +61,7 @@ Route::group(['middleware' => ['auth', 'role:staf']], function () {
         Route::get('transaksi/detail/{id}/npd', [StafTransaksiController::class, 'npd']);
         Route::get('transaksi/detail/{id}/sptjb', [StafTransaksiController::class, 'sptjb']);
         Route::get('transaksi/detail/{id}/kuitansisatu', [StafTransaksiController::class, 'kuitansisatu']);
+        Route::get('transaksi/detail/{id}/tt', [StafTransaksiController::class, 'tt']);
 
         Route::get('transaksi/spj', [StafSPJController::class, 'index']);
         Route::get('transaksi/spj/kirim/{id}', [StafSPJController::class, 'kirimKeVerifikator']);
@@ -125,6 +127,8 @@ Route::group(['middleware' => ['auth', 'role:staf']], function () {
         Route::get('laporan/jkk/cetak/{id}', [StafLaporanController::class, 'jkkCetak']);
         Route::get('laporan/jkm/cetak/{id}', [StafLaporanController::class, 'jkmCetak']);
         Route::get('laporan/nodin/cetak/{id}', [StafLaporanController::class, 'nodinCetak']);
+
+        Route::post('billing', [StafTTController::class, 'billing']);
     });
 });
 Route::group(['middleware' => ['auth', 'role:verifikator']], function () {

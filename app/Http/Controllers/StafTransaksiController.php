@@ -62,4 +62,10 @@ class StafTransaksiController extends Controller
         $data = T_bku_rekening_detail::where('t_spj_id', $id)->where('pajak', 0)->get();
         return view('staf.transaksi.kuitansi.index', compact('id', 'data', 'ttd'));
     }
+    public function tt($id)
+    {
+        $ttd = T_spj::find($id);
+        $rekening = T_bku_rekening_detail::where('t_spj_id', $id)->get();
+        return view('staf.transaksi.tt.index', compact('id', 'rekening', 'ttd'));
+    }
 }
