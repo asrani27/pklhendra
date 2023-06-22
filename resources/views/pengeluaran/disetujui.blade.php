@@ -33,7 +33,7 @@
                 @foreach ($data as $item)
                 <tr  style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:10px;background-color:#a7c2fa">
                     <td></td>
-                    <td>{{$item->tanggal}}</td>
+                    <td>{{\Carbon\Carbon::parse($item->tanggal)->translatedFormat('d F Y')}}</td>
                     <td></td>
                     <td>{{$item->subkegiatan}}</td>
                     <td></td>
@@ -49,12 +49,16 @@
                     <td></td>
                     <td></td>
                     <td>{{koderekening($item2->rekening->koderek->kode1,$item2->rekening->koderek->kode2,$item2->rekening->koderek->kode3,$item2->rekening->koderek->kode4,$item2->rekening->koderek->kode5,$item2->rekening->koderek->kode6)}}</td>
-                    <td></td>
+                    <td>{{$item2->nomor}}/BPK/2.16.2.20.2.21.02.0000/2023</td>
                     <td>{{$item2->uraian}}</td>
                     <td>{{number_format($item2->penerimaan)}}</td>
                     <td>{{number_format($item2->pengeluaran)}}</td>
                     <td>{{$item2->penerima}}</td>
-                    <td>{{$item2->id_billing}}</td>
+                    <td>
+                      {{$item2->id_billing}}
+                      <a href="#"
+                      class="btn btn-xs btn-flat edit-billing" data-bku_rekening_detail_id="{{$item2->id}}" data-billing="{{$item2->id_billing}}"><i class="fa fa-edit"></i></a>
+                    </td>
                     <td>{{$item2->keterangan}}</td>
                     <td></td>
                 </tr>
@@ -121,35 +125,43 @@
         </div>
     </div>
 
-    
+    <div class="modal fade" id="modal-edit">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-purple">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title"><i class="ion ion-clipboard"></i> ID Billing</h4>
+          </div>
+          <form method="post" action="/bendahara/pengeluaran/billing">
+          <div class="modal-body">
+              @csrf
+              
+              <div class="form-group">
+                  <label>ID Billing</label>
+                  <input type="text" id="id_billing" class="form-control" name="id_billing">
+                  <input type="hidden" id="bku_rekening_detail_id" class="form-control" name="bku_rekening_detail_id">
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn bg-grey pull-left" data-dismiss="modal"><i class="fa fa-sign-out"></i> Close</button>
+            <button type="submit" class="btn bg-purple"><i class="fa fa-save"></i> Simpan</button>
+          </div>
+          </form>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
 </section>
 
 
 @endsection
 @push('js')
-
 <script>
-  $(document).on('click', '.tambah-uraian', function() {
-  $('#bku_rekening_id').val($(this).data('bku_rekening_id'));
-  $("#modal-tambah").modal();
-});
-</script>
-
-<script>
-  $(document).on('click', '.edit-uraian', function() {
+  $(document).on('click', '.edit-billing', function() {
   $('#bku_rekening_detail_id').val($(this).data('bku_rekening_detail_id'));
-  $('#detail_uraian').val($(this).data('uraian'));
-  $('#penerimaan').val($(this).data('penerimaan'));
-  $('#pengeluaran').val($(this).data('pengeluaran'));
-  var x = $(this).data('pajak');
-  let pajak;
-  if(x == 0){
-    pajak =  document.getElementById("pajak2");
-  }else{
-    pajak =  document.getElementById("pajak1");
-  }
-  pajak.checked = true;
-
+  $('#id_billing').val($(this).data('billing'));
   $("#modal-edit").modal();
 });
 </script>

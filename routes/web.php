@@ -153,6 +153,7 @@ Route::group(['middleware' => ['auth', 'role:bendahara_pengeluaran']], function 
         Route::post('spj/tolak/{id}', [PengeluaranSPJController::class, 'spj_revisi']);
         Route::post('spj/setujui/{id}', [PengeluaranSPJController::class, 'setuju']);
         Route::get('spj/disetujui', [PengeluaranSPJController::class, 'spj_disetujui']);
+        Route::post('billing', [PengeluaranSPJController::class, 'billing']);
     });
 });
 
@@ -383,7 +384,7 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
 //     Route::get('skpd/bidang/program/delete/{id}', [ProgramController::class, 'delete']);
 // });
 
-Route::group(['middleware' => ['auth', 'role:superadmin|admin|staf|verifikator|bendahara']], function () {
+Route::group(['middleware' => ['auth', 'role:superadmin|admin|staf|verifikator|bendahara_pengeluaran|bendahara_pencairan']], function () {
     Route::get('/logout', [LogoutController::class, 'logout']);
 
     Route::get('gantipass', [GantiPassController::class, 'index']);

@@ -31,19 +31,60 @@ class PengeluaranSPJController extends Controller
 
     public function setuju(Request $req, $id)
     {
-        $data = T_spj::find($id);
-        $data->tanggal = $req->tanggal;
-        $data->status_pengeluaran = 2;
-        $data->status_pencairan = 1;
-        $data->save();
 
-        //BKU
-        $bku = T_bku_rekening::where('t_spj_id', $id)->get();
-        foreach ($bku as $key => $item) {
-            $item->update(['tanggal' => $req->tanggal]);
+        $id_spj = T_spj::where('status_pengeluaran', 2)->get()->pluck('id');
+        $checkNomor = T_bku_rekening_detail::where('nomor', '!=', null)->get();
+
+        if ($checkNomor->count() == 0) {
+            $bku = T_bku_rekening_detail::where('t_spj_id', $id)->get();
+            foreach ($bku as $key => $item) {
+                $item->update([
+                    'nomor' => $key + 1
+                ]);
+            }
+
+            $data = T_spj::find($id);
+            $data->tanggal = $req->tanggal;
+            $data->status_pengeluaran = 2;
+            $data->status_pencairan = 1;
+            $data->save();
+
+            //BKU
+            $bku = T_bku_rekening::where('t_spj_id', $id)->get();
+            foreach ($bku as $key => $item) {
+                $item->update(['tanggal' => $req->tanggal]);
+            }
+
+            Session::flash('success', 'SPJ Disetujui, silahkan check di menu SPJ di setujui');
+            return redirect('/bendahara/pengeluaran/spj/masuk');
+        } else {
+
+            $bku = T_bku_rekening_detail::where('t_spj_id', $id)->get();
+            foreach ($bku as $key => $item) {
+                $item->update([
+                    'nomor' => $key + 1 + $checkNomor->last()->nomor
+                ]);
+            }
+
+            $data = T_spj::find($id);
+            $data->tanggal = $req->tanggal;
+            $data->status_pengeluaran = 2;
+            $data->status_pencairan = 1;
+            $data->save();
+
+            //BKU
+            $bku = T_bku_rekening::where('t_spj_id', $id)->get();
+            foreach ($bku as $key => $item) {
+                $item->update(['tanggal' => $req->tanggal]);
+            }
+
+            Session::flash('success', 'SPJ Disetujui, silahkan check di menu SPJ di setujui');
+            return redirect('/bendahara/pengeluaran/spj/masuk');
         }
-        Session::flash('success', 'SPJ Disetujui, silahkan check di menu SPJ di setujui');
-        return redirect('/bendahara/pengeluaran/spj/masuk');
+
+        //$bku = T_bku_rekening_detail::where('t_spj_id', $id_spj)->get();
+
+
     }
 
     public function spj_disetujui()
@@ -54,9 +95,18 @@ class PengeluaranSPJController extends Controller
             return back();
         }
 
-        $rekening = T_bku_rekening_detail::where('t_spj_id', $id_spj)->get();
+        $rekening = T_bku_rekening_detail::whereIn('t_spj_id', $id_spj->toArray())->get();
+
         $data = T_spj::where('status_pengeluaran', 2)->orderBy('tanggal', 'ASC')->get();
         // $total = T_bku_rekening_detail::where('t_spj_id', $id)->get();
         return view('pengeluaran.disetujui', compact('rekening', 'data'));
+    }
+
+    public function billing(Request $req)
+    {
+        T_bku_rekening_detail::find($req->bku_rekening_detail_id)->update([
+            'id_billing' => $req->id_billing
+        ]);
+        return back();
     }
 }
