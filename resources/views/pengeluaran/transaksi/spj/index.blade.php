@@ -25,8 +25,8 @@
                   <th>SubKegiatan</th>
                   <th>PPTK</th>
                   <th>Pengguna Anggaran</th>
-                  <th></th>
                   <th>Status</th>
+                  <th></th>
                 </tr>
                 @foreach ($data as $key => $item)
                 <tr style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:10px;">
@@ -36,13 +36,6 @@
                     <td>{{$item->subkegiatan}}</td>
                     <td>{{$item->pptk}}<br/>{{$item->nip_pptk}}</td>
                     <td>{{$item->pengguna}}<br/>{{$item->nip_pengguna}}</td>
-                    <td>
-                      <a href="/verifikator/transaksi/detail/{{$item->id}}" class="btn btn-xs btn-flat  btn-primary">Transaksi</a><br/>
-                      @if ($item->status_verifikator == 1 && $item->status_pengeluaran == 0)
-                      <a href="/verifikator/transaksi/spj/kirim/{{$item->id}}" class="btn btn-xs btn-flat  btn-success" onclick="return confirm('Yakin ingin dikirim?');"> Kirim Ke Pengeluaran</a><br/>
-                      <a href="/verifikator/transaksi/spj/tolak/{{$item->id}}" class="btn btn-xs btn-flat  btn-danger" onclick="return confirm('Yakin ingin dikembalikan?');"> Kembalikan Ke Staff</a>
-                      @endif
-                    </td>
                     <td>
                       @if ($item->status_verifikator == 0)
                       Verifikator : -    
@@ -67,6 +60,10 @@
                       @elseif($item->status_pencairan == 2)
                       Pencairan : selesai
                       @endif
+                    </td>
+                    <td>
+                      <a href="/bendahara/pengeluaran/spj/detail/{{$item->id}}" class="btn btn-xs btn-flat  btn-primary">Detail</a>
+                      
                     </td>
                 </tr>
                 @endforeach

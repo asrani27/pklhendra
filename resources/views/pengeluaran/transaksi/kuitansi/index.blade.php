@@ -57,8 +57,8 @@
                       <td class="text-center">{{$no++}}</td>
                       <td class="text-center">
                         {{$item->penerima}}
-                        {{-- <a href="#"
-                        class="btn btn-xs btn-flat edit-penerima" data-bku_rekening_detail_id="{{$item->id}}" data-penerima="{{$item->penerima}}"><i class="fa fa-edit"></i></a> --}}
+                        <a href="#"
+                        class="btn btn-xs btn-flat edit-penerima" data-bku_rekening_detail_id="{{$item->id}}" data-penerima="{{$item->penerima}}"><i class="fa fa-edit"></i></a>
                       </td>
                       <td class="text-center">
                         {{koderekening($item->rekening->koderek->kode1,$item->rekening->koderek->kode2,$item->rekening->koderek->kode3,$item->rekening->koderek->kode4,$item->rekening->koderek->kode5,$item->rekening->koderek->kode6)}} 

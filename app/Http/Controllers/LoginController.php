@@ -26,10 +26,12 @@ class LoginController extends Controller
                 return redirect('/staf/beranda');
             } elseif (Auth::user()->hasRole('verifikator')) {
                 return redirect('/verifikator/beranda');
-            } elseif (Auth::user()->hasRole('bendahara')) {
-                return redirect('/bendahara/beranda');
+            } elseif (Auth::user()->hasRole('bendahara_pengeluaran')) {
+                return redirect('/bendahara/pengeluaran/beranda');
+            } elseif (Auth::user()->hasRole('bendahara_pencairan')) {
+                return redirect('/bendahara/pencairan/beranda');
             } else {
-                return 'role lain';
+                return 'role lainsdf';
             }
         }
         return view('welcome');
@@ -59,9 +61,12 @@ class LoginController extends Controller
             } elseif (Auth::user()->hasRole('verifikator')) {
                 Session::flash('success', 'Selamat Datang');
                 return redirect('/verifikator/beranda');
-            } elseif (Auth::user()->hasRole('bendahara')) {
+            } elseif (Auth::user()->hasRole('bendahara_pengeluaran')) {
                 Session::flash('success', 'Selamat Datang');
-                return redirect('/bendahara/beranda');
+                return redirect('/bendahara/pengeluaran/beranda');
+            } elseif (Auth::user()->hasRole('bendahara_pencairan')) {
+                Session::flash('success', 'Selamat Datang');
+                return redirect('/bendahara/pencairan/beranda');
             } else {
                 Session::flash('success', 'Selamat Datang');
                 return 'role lain';

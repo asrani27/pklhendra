@@ -14,9 +14,11 @@ use App\Http\Controllers\AdminNPDController;
 use App\Http\Controllers\AdminSPJController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\BendaharaController;
+use App\Http\Controllers\PencairanController;
 use App\Http\Controllers\StafSPTJBController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\AdminSPTJBController;
+use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\StafLaporanController;
 use App\Http\Controllers\VerifikatorController;
 use App\Http\Controllers\AdminBerandaController;
@@ -25,6 +27,7 @@ use App\Http\Controllers\LupaPasswordController;
 use App\Http\Controllers\StafKuitansiController;
 use App\Http\Controllers\AdminKuitansiController;
 use App\Http\Controllers\StafTransaksiController;
+use App\Http\Controllers\PengeluaranSPJController;
 use App\Http\Controllers\SuperadminSkpdController;
 use App\Http\Controllers\VerifikatorSPJController;
 use App\Http\Controllers\SuperadminBerandaController;
@@ -132,6 +135,8 @@ Route::group(['middleware' => ['auth', 'role:verifikator']], function () {
 
         Route::post('transaksi/spj/detail/simpan/comment', [VerifikatorTransaksiController::class, 'comment_spj']);
 
+        Route::get('transaksi/spj/kirim/{id}', [VerifikatorSPJController::class, 'kirimKePengeluaran']);
+
         Route::get('transaksi/detail/{id}', [VerifikatorTransaksiController::class, 'index']);
         Route::get('transaksi/detail/{id}/spj', [VerifikatorTransaksiController::class, 'spj']);
         Route::get('transaksi/detail/{id}/bku', [VerifikatorTransaksiController::class, 'bku']);
@@ -140,12 +145,22 @@ Route::group(['middleware' => ['auth', 'role:verifikator']], function () {
         Route::get('transaksi/detail/{id}/kuitansisatu', [VerifikatorTransaksiController::class, 'kuitansisatu']);
     });
 });
-Route::group(['middleware' => ['auth', 'role:bendahara']], function () {
-    Route::prefix('bendahara')->group(function () {
-        Route::get('beranda', [BendaharaController::class, 'index']);
+Route::group(['middleware' => ['auth', 'role:bendahara_pengeluaran']], function () {
+    Route::prefix('bendahara/pengeluaran')->group(function () {
+        Route::get('beranda', [PengeluaranController::class, 'index']);
+        Route::get('spj/masuk', [PengeluaranSPJController::class, 'spj_masuk']);
+        Route::get('spj/detail/{id}', [PengeluaranSPJController::class, 'spj_detail']);
+        Route::post('spj/tolak/{id}', [PengeluaranSPJController::class, 'spj_revisi']);
+        Route::post('spj/setujui/{id}', [PengeluaranSPJController::class, 'setuju']);
+        Route::get('spj/disetujui', [PengeluaranSPJController::class, 'spj_disetujui']);
     });
 });
 
+Route::group(['middleware' => ['auth', 'role:bendahara_pencairan']], function () {
+    Route::prefix('bendahara/pencairan')->group(function () {
+        Route::get('beranda', [PencairanController::class, 'index']);
+    });
+});
 
 Route::group(['middleware' => ['auth', 'role:admin']], function () {
     Route::prefix('admin')->group(function () {
