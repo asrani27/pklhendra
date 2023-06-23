@@ -8,7 +8,7 @@
         <div class="col-xs-12">
           <div class="box box-primary">
             <div class="box-header">
-              <h3 class="box-title"><i class="fa fa-clipboard"></i> BUKU KAS UMUM - PENGELUARAN</h3>
+              <h3 class="box-title"><i class="fa fa-clipboard"></i> SPJ DI SETUJUI</h3>
     
               <div class="box-tools">
               </div>
@@ -56,11 +56,13 @@
                     <td>{{$item2->penerima}}</td>
                     <td>
                       {{$item2->id_billing}}
-                      <a href="#"
-                      class="btn btn-xs btn-flat edit-billing" data-bku_rekening_detail_id="{{$item2->id}}" data-billing="{{$item2->id_billing}}"><i class="fa fa-edit"></i></a>
                     </td>
-                    <td>{{$item2->ntpn}}</td>
-                    <td>{{$item2->keterangan}}</td>
+                    <td>{{$item2->ntpn}}
+                      <a href="#"
+                      class="btn btn-xs btn-flat edit-ntpn" data-bku_rekening_detail_id="{{$item2->id}}" data-ntpn="{{$item2->ntpn}}"><i class="fa fa-edit"></i></a></td>
+                    <td>{{$item2->keterangan}}
+                      <a href="#"
+                      class="btn btn-xs btn-flat edit-keterangan" data-bku_rekening_detail_id="{{$item2->id}}" data-keterangan="{{$item2->keterangan}}"><i class="fa fa-edit"></i></a></td>
                 </tr>
                 @endforeach
                 @endforeach
@@ -125,22 +127,51 @@
         </div>
     </div>
 
-    <div class="modal fade" id="modal-edit">
+    <div class="modal fade" id="ntpn-edit">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header bg-purple">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title"><i class="ion ion-clipboard"></i> ID Billing</h4>
+            <h4 class="modal-title"><i class="ion ion-clipboard"></i> NTPN</h4>
           </div>
-          <form method="post" action="/bendahara/pengeluaran/billing">
+          <form method="post" action="/bendahara/pencairan/ntpn">
           <div class="modal-body">
               @csrf
               
               <div class="form-group">
-                  <label>ID Billing</label>
-                  <input type="text" id="id_billing" class="form-control" name="id_billing">
+                  <label>NTPN</label>
+                  <input type="text" id="ntpn" class="form-control" name="ntpn">
                   <input type="hidden" id="bku_rekening_detail_id" class="form-control" name="bku_rekening_detail_id">
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn bg-grey pull-left" data-dismiss="modal"><i class="fa fa-sign-out"></i> Close</button>
+            <button type="submit" class="btn bg-purple"><i class="fa fa-save"></i> Simpan</button>
+          </div>
+          </form>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+
+    <div class="modal fade" id="keterangan-edit">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-purple">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title"><i class="ion ion-clipboard"></i> Keterangan</h4>
+          </div>
+          <form method="post" action="/bendahara/pencairan/keterangan">
+          <div class="modal-body">
+              @csrf
+              
+              <div class="form-group">
+                  <label>keterangan</label>
+                  <input type="text" id="keterangan" class="form-control" name="keterangan">
+                  <input type="hidden" id="k_bku_rekening_detail_id" class="form-control" name="bku_rekening_detail_id">
               </div>
           </div>
           <div class="modal-footer">
@@ -159,10 +190,17 @@
 @endsection
 @push('js')
 <script>
-  $(document).on('click', '.edit-billing', function() {
+  $(document).on('click', '.edit-ntpn', function() {
   $('#bku_rekening_detail_id').val($(this).data('bku_rekening_detail_id'));
-  $('#id_billing').val($(this).data('billing'));
-  $("#modal-edit").modal();
+  $('#ntpn').val($(this).data('ntpn'));
+  $("#ntpn-edit").modal();
+});
+
+
+$(document).on('click', '.edit-keterangan', function() {
+  $('#k_bku_rekening_detail_id').val($(this).data('bku_rekening_detail_id'));
+  $('#keterangan').val($(this).data('keterangan'));
+  $("#keterangan-edit").modal();
 });
 </script>
 @endpush

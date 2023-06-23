@@ -6,6 +6,7 @@ use App\Http\Controllers\StafController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PrintController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\StafTTController;
 use App\Http\Controllers\StafBKUController;
 use App\Http\Controllers\StafNPDController;
 use App\Http\Controllers\StafSPJController;
@@ -24,11 +25,11 @@ use App\Http\Controllers\VerifikatorController;
 use App\Http\Controllers\AdminBerandaController;
 use App\Http\Controllers\AdminKoderekController;
 use App\Http\Controllers\LupaPasswordController;
+use App\Http\Controllers\PencairanSPJController;
 use App\Http\Controllers\StafKuitansiController;
 use App\Http\Controllers\AdminKuitansiController;
 use App\Http\Controllers\StafTransaksiController;
 use App\Http\Controllers\PengeluaranSPJController;
-use App\Http\Controllers\StafTTController;
 use App\Http\Controllers\SuperadminSkpdController;
 use App\Http\Controllers\VerifikatorSPJController;
 use App\Http\Controllers\SuperadminBerandaController;
@@ -164,6 +165,9 @@ Route::group(['middleware' => ['auth', 'role:bendahara_pengeluaran']], function 
 Route::group(['middleware' => ['auth', 'role:bendahara_pencairan']], function () {
     Route::prefix('bendahara/pencairan')->group(function () {
         Route::get('beranda', [PencairanController::class, 'index']);
+        Route::get('spj/disetujui', [PencairanSPJController::class, 'spj_disetujui']);
+        Route::post('ntpn', [PencairanSPJController::class, 'ntpn']);
+        Route::post('keterangan', [PencairanSPJController::class, 'keterangan']);
     });
 });
 
