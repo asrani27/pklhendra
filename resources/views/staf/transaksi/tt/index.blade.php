@@ -48,8 +48,8 @@
                       <a href="#"
                       class="btn btn-xs btn-flat edit-billing" data-bku_rekening_detail_id="{{$item2->id}}" data-billing="{{$item2->id_billing}}"><i class="fa fa-edit"></i></a>
                     </td>
+                    <td>{{$item2->ntpn}}</td>
                     <td>{{$item2->keterangan}}</td>
-                    <td></td>
                 </tr>
                 @endforeach
                 {{-- @foreach ($rekening as $item)
