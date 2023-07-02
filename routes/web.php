@@ -139,7 +139,7 @@ Route::group(['middleware' => ['auth', 'role:staf']], function () {
         Route::get('laporan/jkn/cetak/{id}', [PrintController::class, 'jknCetak']);
         Route::get('laporan/jkk/cetak/{id}', [PrintController::class, 'jkkCetak']);
         Route::get('laporan/jkm/cetak/{id}', [PrintController::class, 'jkmCetak']);
-        Route::get('laporan/nodin/cetak/{id}', [StafLaporanController::class, 'nodinCetak']);
+        Route::get('laporan/nodin/cetak/{id}', [PrintController::class, 'nodin']);
 
         Route::post('billing', [StafTTController::class, 'billing']);
     });

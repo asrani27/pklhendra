@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\T_bku_rekening;
-use App\Models\T_bku_rekening_detail;
 use App\Models\T_jkn;
 use App\Models\T_spj;
 use Illuminate\Http\Request;
+use App\Models\T_bku_rekening;
+use App\Models\T_bku_rekening_detail;
+use PhpOffice\PhpWord\TemplateProcessor;
 
 class PrintController extends Controller
 {
@@ -87,5 +88,29 @@ class PrintController extends Controller
         $spj = T_spj::find($id);
         $data = T_jkn::where('t_spj_id', $id)->get();
         return view('staf.transaksi.jkm.print', compact('data', 'id', 'spj'));
+    }
+
+    public function nodin($id)
+    {
+        $templateProcessor = new TemplateProcessor('notadinas.docx');
+
+        $spj = T_spj::find($id);
+        $detail = T_spj::find($id)->detail;
+        $detail->map(function ($item) {
+            $item->aps = $item->ls_gaji1 + $item->ls_bj1 + $item->gu1;
+            $item->psi = $item->ls_gaji2 + $item->ls_bj2 + $item->gu2;
+            $item->sisa_npd = $item->ja - ($item->aps + $item->psi);
+            return $item;
+        });
+        $templateProcessor->setValues([
+            'bulan' => $spj->bulan,
+            'tahun' => $spj->tahun,
+            'nilai' => number_format($detail->sum('psi')),
+            'terbilang' => terbilang($detail->sum('psi')) . ' rupiah',
+        ]);
+
+        header("Content-Disposition: attachment; filename=notadinas.docx");
+
+        $templateProcessor->saveAs('php://output');
     }
 }
