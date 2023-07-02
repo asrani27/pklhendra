@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\T_bku_rekening;
 use App\Models\T_bku_rekening_detail;
+use App\Models\T_jkn;
 use App\Models\T_spj;
 use Illuminate\Http\Request;
 
@@ -64,5 +65,27 @@ class PrintController extends Controller
 
         $ttd = T_spj::find($data->t_spj_id);
         return view('admin.transaksi.kuitansi.print', compact('id', 'data', 'ttd'));
+    }
+    public function jknCetak($id)
+    {
+        $spj = T_spj::find($id);
+        $data = T_jkn::where('t_spj_id', $id)->get();
+        $data->map(function ($item, $key) {
+            $item->diterima = $item->potongan * $item->jumlah;
+            return $item;
+        });
+        return view('staf.transaksi.jkn.print', compact('data', 'id', 'spj'));
+    }
+    public function jkkCetak($id)
+    {
+        $spj = T_spj::find($id);
+        $data = T_jkn::where('t_spj_id', $id)->get();
+        return view('staf.transaksi.jkk.print', compact('data', 'id', 'spj'));
+    }
+    public function jkmCetak($id)
+    {
+        $spj = T_spj::find($id);
+        $data = T_jkn::where('t_spj_id', $id)->get();
+        return view('staf.transaksi.jkm.print', compact('data', 'id', 'spj'));
     }
 }

@@ -64,6 +64,18 @@ Route::group(['middleware' => ['auth', 'role:staf']], function () {
         Route::get('transaksi/detail/{id}/kuitansisatu', [StafTransaksiController::class, 'kuitansisatu']);
         Route::get('transaksi/detail/{id}/tt', [StafTransaksiController::class, 'tt']);
 
+        Route::get('transaksi/detail/{id}/jkn', [StafTransaksiController::class, 'jkn']);
+        Route::get('transaksi/detail/{id}/jkn/add', [StafTransaksiController::class, 'add_jkn']);
+        Route::post('transaksi/detail/{id}/jkn/add', [StafTransaksiController::class, 'store_jkn']);
+        Route::get('transaksi/detail/{id}/jkn/edit/{jkn_id}', [StafTransaksiController::class, 'edit_jkn']);
+        Route::post('transaksi/detail/{id}/jkn/edit/{jkn_id}', [StafTransaksiController::class, 'update_jkn']);
+        Route::get('transaksi/detail/{id}/jkn/delete/{jkn_id}', [StafTransaksiController::class, 'delete_jkn']);
+
+        Route::get('transaksi/detail/{id}/jkk', [StafTransaksiController::class, 'jkk']);
+        Route::post('transaksi/detail/{id}/jkk', [StafTransaksiController::class, 'update_jkk']);
+        Route::get('transaksi/detail/{id}/jkm', [StafTransaksiController::class, 'jkm']);
+        Route::post('transaksi/detail/{id}/jkm', [StafTransaksiController::class, 'update_jkm']);
+
         Route::get('transaksi/spj', [StafSPJController::class, 'index']);
         Route::get('transaksi/spj/kirim/{id}', [StafSPJController::class, 'kirimKeVerifikator']);
         Route::get('transaksi/spj/add', [StafSPJController::class, 'create']);
@@ -124,9 +136,9 @@ Route::group(['middleware' => ['auth', 'role:staf']], function () {
         Route::get('laporan/npd/cetak/{id}', [PrintController::class, 'npd']);
         Route::get('laporan/sptjb/cetak/{id}', [PrintController::class, 'sptjb']);
         Route::get('laporan/kwitansi/detail/{id}', [PrintController::class, 'kwitansi']);
-        Route::get('laporan/jkn/cetak/{id}', [StafLaporanController::class, 'jknCetak']);
-        Route::get('laporan/jkk/cetak/{id}', [StafLaporanController::class, 'jkkCetak']);
-        Route::get('laporan/jkm/cetak/{id}', [StafLaporanController::class, 'jkmCetak']);
+        Route::get('laporan/jkn/cetak/{id}', [PrintController::class, 'jknCetak']);
+        Route::get('laporan/jkk/cetak/{id}', [PrintController::class, 'jkkCetak']);
+        Route::get('laporan/jkm/cetak/{id}', [PrintController::class, 'jkmCetak']);
         Route::get('laporan/nodin/cetak/{id}', [StafLaporanController::class, 'nodinCetak']);
 
         Route::post('billing', [StafTTController::class, 'billing']);
