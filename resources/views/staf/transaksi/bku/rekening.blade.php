@@ -31,6 +31,7 @@
                   <th class="text-center">Penerimaan</th>
                   <th class="text-center">Pengeluaran</th>
                   <th></th>
+                  <th class="text-center">Comment</th>
                 </tr>
                 @foreach ($rekening as $item)
                     <tr  style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:10px;">
@@ -63,12 +64,16 @@
                         </td>
                         <td>
                           <a href="#"
-                            class="btn btn-xs btn-flat edit-uraian" data-bku_rekening_detail_id="{{$item2->id}}" data-uraian="{{$item2->uraian}}" data-penerimaan="{{$item2->penerimaan}}" data-pajak="{{$item2->pajak}}"><i class="fa fa-edit"></i></a>
+                            class="btn btn-xs btn-flat edit-uraian" data-bku_rekening_detail_id="{{$item2->id}}" data-uraian="{{$item2->uraian}}" data-penerimaan="{{$item2->penerimaan}}" data-pengeluaran="{{$item2->pengeluaran}}" data-pajak="{{$item2->pajak}}"><i class="fa fa-edit"></i></a>
 
                           <a href="/staf/transaksi/bku/detailrekening/delete/{{$item2->id}}"
                           onclick="return confirm('Yakin ingin di hapus');"
                           class="btn btn-xs btn-flat"><i class="fa fa-trash"></i></a>
                         </td>
+                        <td style="text-align: right">
+                          {{$item->comment_verifikator}}
+                        </td>
+                        
                       </tr>
                       @endforeach
                         {{-- <tr>
@@ -89,6 +94,7 @@
                   <td>Total Bulan Ini</td>
                   <td style="text-align: right">{{number_format($total->sum('penerimaan'))}}</td>
                   <td style="text-align: right">{{number_format($total->sum('pengeluaran'))}}</td>
+                  <td></td>
                   <td></td>
                 </tr>
               </tfoot>

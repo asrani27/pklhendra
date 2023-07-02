@@ -15,6 +15,15 @@ class VerifikatorSPJController extends Controller
         return view('verifikator.transaksi.spj.index', compact('data'));
     }
 
+    public function tolakSPJ($id)
+    {
+        T_spj::find($id)->update([
+            'status_verifikator' => 0
+        ]);
+        Session::flash('success', 'Dikembalikan ke staff');
+        return back();
+    }
+
     public function kirimKePengeluaran($id)
     {
         T_spj::find($id)->update([

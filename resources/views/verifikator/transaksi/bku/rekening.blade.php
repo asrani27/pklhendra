@@ -56,12 +56,11 @@
                         <td style="text-align: right">
                           {{number_format($item2->pengeluaran)}}
                         </td>
-                        <td>
-                          <a href="#"
-                            class="btn btn-xs btn-flat edit-uraian" data-bku_rekening_detail_id="{{$item2->id}}" data-uraian="{{$item2->uraian}}" data-penerimaan="{{$item2->penerimaan}}" data-pajak="{{$item2->pajak}}"><i class="fa fa-edit"></i></a>
-
-                            
-                        </td>
+                        
+                    <td>
+                      {{$item->comment_verifikator}}
+                      <a href="#" class="btn btn-xs comment-verifikator btn-flat" data-id="{{$item->id}}" data-comment_verifikator="{{$item->comment_verifikator}}"><i class="fa fa-edit"></i></a>
+                    </td>
                       </tr>
                       @endforeach
                         {{-- <tr>
@@ -178,12 +177,50 @@
       </div>
       <!-- /.modal-dialog -->
     </div>
+
+    <div class="modal fade" id="modal-editcomment">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-purple">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title"><i class="ion ion-clipboard"></i> Comment Verifikator</h4>
+          </div>
+          <form method="post" action="/verifikator/transaksi/bku/detail/simpan/comment">
+          <div class="modal-body">
+              @csrf
+              
+              <div class="form-group">
+                  <label>Deskripsi</label>
+                  <input type="text" id="comment-verifikator" class="form-control" name="comment_verifikator">
+                  <input type="hidden" id="detail_id" class="form-control" name="detail_id" readonly>
+              </div>
+              
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn bg-grey pull-left" data-dismiss="modal"><i class="fa fa-sign-out"></i> Close</button>
+            <button type="submit" class="btn bg-purple"><i class="fa fa-save"></i> Simpan</button>
+          </div>
+          </form>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
 </section>
 
 
 @endsection
 @push('js')
 
+
+<script>
+  $(document).on('click', '.comment-verifikator', function() {
+  $('#detail_id').val($(this).data('id'));
+  $('#comment-verifikator').val($(this).data('comment_verifikator'));
+  $("#modal-editcomment").modal();
+});
+</script>
 <script>
   $(document).on('click', '.tambah-uraian', function() {
   $('#bku_rekening_id').val($(this).data('bku_rekening_id'));

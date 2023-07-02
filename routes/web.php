@@ -139,8 +139,10 @@ Route::group(['middleware' => ['auth', 'role:verifikator']], function () {
 
 
         Route::post('transaksi/spj/detail/simpan/comment', [VerifikatorTransaksiController::class, 'comment_spj']);
+        Route::post('transaksi/bku/detail/simpan/comment', [VerifikatorTransaksiController::class, 'comment_bku']);
 
         Route::get('transaksi/spj/kirim/{id}', [VerifikatorSPJController::class, 'kirimKePengeluaran']);
+        Route::get('transaksi/spj/tolak/{id}', [VerifikatorSPJController::class, 'tolakSPJ']);
 
         Route::get('transaksi/detail/{id}', [VerifikatorTransaksiController::class, 'index']);
         Route::get('transaksi/detail/{id}/spj', [VerifikatorTransaksiController::class, 'spj']);

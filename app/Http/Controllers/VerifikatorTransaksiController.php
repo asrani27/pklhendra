@@ -71,4 +71,11 @@ class VerifikatorTransaksiController extends Controller
         Session::flash('success', 'Berhasil Diupdate');
         return back();
     }
+
+    public function comment_bku(Request $req)
+    {
+        T_bku_rekening::find($req->detail_id)->update(['comment_verifikator' => $req->comment_verifikator]);
+        Session::flash('success', 'Berhasil Diupdate');
+        return back();
+    }
 }

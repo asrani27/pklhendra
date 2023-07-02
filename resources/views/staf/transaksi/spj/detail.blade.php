@@ -31,6 +31,7 @@
                   <th class="text-center" colspan=3>SPJ - UP/GU/TU</th>
                   <th class="text-center" rowspan=2>Jumlah SPJ <br/>(LS+UP/GU/TU) <br/>s.d. Bln ini</th>
                   <th class="text-center" rowspan=2>Sisa Pagu <br/>Anggaran</th>
+                  <th class="text-center" rowspan=3>Comment</th>
                 </tr>
                 <tr style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:8px;background-color:silver">
                 
@@ -112,6 +113,9 @@
                     </td>
                     <td style="text-align: right">
                       {{number_format($item->sisa)}}
+                    </td>
+                    <td style="text-align: right">
+                      {{$item->comment_verifikator}}
                     </td>
                     {{-- <td>
                       <a href="/staf/transaksi/spj/detail/{{$item->id}}" class="btn btn-xs btn-flat  btn-success">detail</a>
