@@ -162,6 +162,10 @@ Route::group(['middleware' => ['auth', 'role:verifikator']], function () {
         Route::get('transaksi/detail/{id}/npd', [VerifikatorTransaksiController::class, 'npd']);
         Route::get('transaksi/detail/{id}/sptjb', [VerifikatorTransaksiController::class, 'sptjb']);
         Route::get('transaksi/detail/{id}/kuitansisatu', [VerifikatorTransaksiController::class, 'kuitansisatu']);
+        Route::get('transaksi/detail/{id}/tt', [VerifikatorTransaksiController::class, 'tt']);
+        Route::get('transaksi/detail/{id}/jkk', [VerifikatorTransaksiController::class, 'jkk']);
+        Route::get('transaksi/detail/{id}/jkm', [VerifikatorTransaksiController::class, 'jkm']);
+        Route::get('transaksi/detail/{id}/jkn', [VerifikatorTransaksiController::class, 'jkn']);
     });
 });
 Route::group(['middleware' => ['auth', 'role:bendahara_pengeluaran']], function () {

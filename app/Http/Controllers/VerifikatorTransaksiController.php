@@ -7,6 +7,7 @@ use App\Models\T_spj_detail;
 use Illuminate\Http\Request;
 use App\Models\T_bku_rekening;
 use App\Models\T_bku_rekening_detail;
+use App\Models\T_jkn;
 use Illuminate\Support\Facades\Session;
 
 class VerifikatorTransaksiController extends Controller
@@ -77,5 +78,30 @@ class VerifikatorTransaksiController extends Controller
         T_bku_rekening::find($req->detail_id)->update(['comment_verifikator' => $req->comment_verifikator]);
         Session::flash('success', 'Berhasil Diupdate');
         return back();
+    }
+
+    public function tt($id)
+    {
+        $ttd = T_spj::find($id);
+        $rekening = T_bku_rekening_detail::where('t_spj_id', $id)->get();
+        return view('verifikator.transaksi.tt.index', compact('id', 'rekening', 'ttd'));
+    }
+    public function jkn($id)
+    {
+        $ttd = T_spj::find($id);
+        $data = T_jkn::where('t_spj_id', $id)->paginate(15);
+        return view('verifikator.transaksi.jkn.index', compact('id', 'data', 'ttd'));
+    }
+    public function jkk($id)
+    {
+        $ttd = T_spj::find($id);
+        $data = T_jkn::where('t_spj_id', $id)->paginate(15);
+        return view('verifikator.transaksi.jkk.index', compact('id', 'data', 'ttd'));
+    }
+    public function jkm($id)
+    {
+        $ttd = T_spj::find($id);
+        $data = T_jkn::where('t_spj_id', $id)->paginate(15);
+        return view('verifikator.transaksi.jkm.index', compact('id', 'data', 'ttd'));
     }
 }
