@@ -43,7 +43,8 @@
                       <option value="admin" {{$data->roles()->first()->name == 'admin' ? 'selected':''}}>admin</option>
                       <option value="staf" {{$data->roles()->first()->name == 'staf' ? 'selected':''}}>staf</option>
                       <option value="verifikator" {{$data->roles()->first()->name == 'verifikator' ? 'selected':''}}>verifikator</option>
-                      <option value="bendahara" {{$data->roles()->first()->name == 'bendahara' ? 'selected':''}}>bendahara keuangan</option>
+                      <option value="bendahara_pengeluaran" {{$data->roles()->first()->name == 'bendahara_pengeluaran' ? 'selected':''}}>bendahara_pengeluaran</option>
+                      <option value="bendahara_pencairan" {{$data->roles()->first()->name == 'bendahara_pencairan' ? 'selected':''}}>bendahara_pencairan</option>
                     </select>
                   </div>
                 </div>
