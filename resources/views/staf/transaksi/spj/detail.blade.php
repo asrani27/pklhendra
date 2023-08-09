@@ -324,7 +324,7 @@
               
               <div class="form-group">
                   <label>Angka</label>
-                  <input type="text" id="angka" class="form-control" name="angka">
+                  <input type="text" id="angka" class="form-control" name="angka" onkeypress="return hanyaAngka(event)">
                   <input type="hidden" id="kolom" class="form-control" name="kolom">
                   <input type="hidden" id="detail_id" class="form-control" name="detail_id" readonly>
               </div>
@@ -346,6 +346,15 @@
 @endsection
 @push('js')
 
+<script>
+  function hanyaAngka(evt) {
+    var charCode = (evt.which) ? evt.which : event.keyCode
+     if (charCode > 31 && (charCode < 48 || charCode > 57))
+
+      return false;
+    return true;
+  }
+</script>
 <script>
   $(document).on('click', '.isiangka', function() {
   $('#detail_id').val($(this).data('id'));

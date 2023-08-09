@@ -125,11 +125,11 @@
               </div>
               <div class="form-group">
                   <label>Penerimaan</label>
-                  <input type="text" class="form-control" name="penerimaan">
+                  <input type="text" class="form-control" name="penerimaan" onkeypress="return hanyaAngka(event)">
               </div>
               <div class="form-group">
                   <label>Pengeluaran</label>
-                  <input type="text" class="form-control" name="pengeluaran">
+                  <input type="text" class="form-control" name="pengeluaran" onkeypress="return hanyaAngka(event)">
               </div>
               <div class="form-group">
                   <label>Pajak</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -168,11 +168,11 @@
               </div>
               <div class="form-group">
                   <label>Penerimaan</label>
-                  <input type="text" id="penerimaan" class="form-control" name="penerimaan">
+                  <input type="text" id="penerimaan" class="form-control" name="penerimaan" onkeypress="return hanyaAngka(event)">
               </div>
               <div class="form-group">
                   <label>Pengeluaran</label>
-                  <input type="text" id="pengeluaran" class="form-control" name="pengeluaran">
+                  <input type="text" id="pengeluaran" class="form-control" name="pengeluaran" onkeypress="return hanyaAngka(event)">
               </div>
               
               <div class="form-group">
@@ -196,7 +196,15 @@
 
 @endsection
 @push('js')
+<script>
+  function hanyaAngka(evt) {
+    var charCode = (evt.which) ? evt.which : event.keyCode
+     if (charCode > 31 && (charCode < 48 || charCode > 57))
 
+      return false;
+    return true;
+  }
+</script>
 <script>
   $(document).on('click', '.tambah-uraian', function() {
   $('#bku_rekening_id').val($(this).data('bku_rekening_id'));
