@@ -14,6 +14,7 @@
               <h3 class="box-title"><i class="fa fa-clipboard"></i> DETAIL SPJ</h3>
     
               <div class="box-tools">
+                <a href="/staf/transaksi/spj/tarikdata" class="btn btn-sm btn-primary btn-flat"><i class="fa fa-recycle"></i> Tarik Data Sebelumnya</a>
                 <a href="/staf/transaksi/spj/adduraian/{{$data->id}}" class="btn btn-sm btn-primary btn-flat"><i class="fa fa-plus-circle"></i> Uraian</a>
                 <a href="/staf/transaksi/spj/print/{{$id}}" class="btn btn-sm btn-danger btn-flat" target="_blank"><i class="fa fa-file"></i> PRINT</a>
               </div>

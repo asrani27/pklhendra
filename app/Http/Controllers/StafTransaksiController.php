@@ -34,12 +34,21 @@ class StafTransaksiController extends Controller
 
         return view('staf.transaksi.spj.detail', compact('data', 'id', 'detail', 'penerimaan', 'sp2d', 'pp', 'ppn', 'pph21', 'pph22', 'pph23', 'pph4', 'lain'));
     }
+
+
     public function bku($id)
     {
         $data = T_spj::find($id);
         $rekening = T_bku_rekening::where('t_spj_id', $id)->get();
         $total = T_bku_rekening_detail::where('t_spj_id', $id)->get();
-        return view('staf.transaksi.bku.rekening', compact('data', 'rekening', 'id', 'total'));
+        $penerimaan = $data->detail;
+        $totalbku = [];
+        foreach ($penerimaan as $i) {
+            $totalbku[] += $i->ls_gaji2 + $i->ls_bj2 + $i->gu2;
+        }
+        $penerimaan_bku = array_sum($totalbku);
+
+        return view('staf.transaksi.bku.rekening', compact('data', 'rekening', 'id', 'total', 'penerimaan_bku'));
     }
     public function npd($id)
     {

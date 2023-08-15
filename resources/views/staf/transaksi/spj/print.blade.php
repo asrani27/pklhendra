@@ -382,7 +382,7 @@
             <td></td>
             <td></td>
             <td></td>
-            <td>Banjarmasin,  {{\Carbon\Carbon::today()->translatedFormat('F Y')}}<br/>
+            <td>Banjarmasin,  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{\Carbon\Carbon::today()->translatedFormat('F Y')}}<br/>
             PPTK,<br/><br/><br/><br/><br/>
         
             <u>{{$data->pptk}}</u><br/>

@@ -13,7 +13,7 @@ class AdminSPJController extends Controller
 {
     public function index()
     {
-        $data = T_spj::paginate(15);
+        $data = T_spj::orderBy('id', 'DESC')->paginate(15);
 
         return view('admin.transaksi.spj.index', compact('data'));
     }

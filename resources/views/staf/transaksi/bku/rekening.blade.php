@@ -33,6 +33,26 @@
                   <th></th>
                   <th class="text-center">Comment</th>
                 </tr>
+                <tr style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:10px;">
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>Terima dari Bendahara Pengeluaran</td>
+                  <td>{{number_format($penerimaan_bku)}}</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:10px;">
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>{{$data->subkegiatan}}</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
                 @foreach ($rekening as $item)
                     <tr  style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:10px;">
                       <td rowspan="{{$item->detailRekening->count() + 1}}"  class="text-center"><a href="/staf/transaksi/bku/rekening/delete/{{$item->id}}"
@@ -92,7 +112,7 @@
                   <td></td>
                   <td></td>
                   <td>Total Bulan Ini</td>
-                  <td style="text-align: right">{{number_format($total->sum('penerimaan'))}}</td>
+                  <td style="text-align: right">{{number_format($total->sum('penerimaan') + $penerimaan_bku)}}</td>
                   <td style="text-align: right">{{number_format($total->sum('pengeluaran'))}}</td>
                   <td></td>
                   <td></td>

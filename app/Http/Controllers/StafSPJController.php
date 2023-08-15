@@ -12,9 +12,43 @@ use Illuminate\Support\Facades\Session;
 
 class StafSPJController extends Controller
 {
+
+    public function tarikData()
+    {
+        $dataSebelumnya = T_spj::orderBy('id', 'DESC')->skip(1)->first();
+        $newData = T_spj::orderBy('id', 'DESC')->first();
+
+        if ($dataSebelumnya->detail->count() == 0) {
+
+            Session::flash('info', 'Tidak ada data');
+            return back();
+        } else {
+            //tarik datanya
+            $check = T_spj_detail::where('t_spj_id', $newData->id)->get();
+            foreach ($check as $i) {
+                $i->delete();
+            }
+
+            foreach ($dataSebelumnya->detail as $n) {
+
+                $new = new T_spj_detail;
+                $new->t_spj_id = $newData->id;
+                $new->m_koderek_id = $n->m_koderek_id;
+                $new->ja = $n->ja;
+                $new->ls_gaji1 = $n->ls_gaji2;
+                $new->ls_bj1 = $n->ls_bj2;
+                $new->gu1 = $n->gu2;
+                $new->jumlah = $n->jumlah;
+                $new->sisa = $n->sisa;
+                $new->save();
+            }
+            Session::flash('success', 'Berhasil ditarik');
+            return back();
+        }
+    }
     public function index()
     {
-        $data = T_spj::paginate(15);
+        $data = T_spj::orderBy('id', 'DESC')->paginate(15);
 
         return view('staf.transaksi.spj.index', compact('data'));
     }

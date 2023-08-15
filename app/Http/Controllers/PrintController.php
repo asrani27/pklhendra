@@ -24,7 +24,7 @@ class PrintController extends Controller
         $pph23 = $penerimaan->where('jenis', 'pph23')->first();
         $pph4 = $penerimaan->where('jenis', 'pph4')->first();
         $lain = $penerimaan->where('jenis', 'lain')->first();
-        return view('admin.transaksi.spj.print', compact('data', 'id', 'detail', 'penerimaan', 'sp2d', 'pp', 'ppn', 'pph21', 'pph22', 'pph23', 'pph4', 'lain'));
+        return view('staf.transaksi.spj.print', compact('data', 'id', 'detail', 'penerimaan', 'sp2d', 'pp', 'ppn', 'pph21', 'pph22', 'pph23', 'pph4', 'lain'));
     }
     public function bku($id)
     {
