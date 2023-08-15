@@ -26,7 +26,7 @@
                   <th>Nama / Jabatan</th>
                   <th>Jumlah Honorarium</th>
                   <th>Standar Potongan Iuran JKN KIS (UMP/UMK)</th>
-                  <th>JKN KIS 4% (Rp.) Desember</th>
+                  <th>JKN KIS 4% (Rp.)</th>
                   <th>Jlh Uang yg diterima (Rp.)</th>
                   <th>Aksi</th>
                 </tr>
