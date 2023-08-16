@@ -35,9 +35,9 @@ class StafSPJController extends Controller
                 $new->t_spj_id = $newData->id;
                 $new->m_koderek_id = $n->m_koderek_id;
                 $new->ja = $n->ja;
-                $new->ls_gaji1 = $n->ls_gaji2;
-                $new->ls_bj1 = $n->ls_bj2;
-                $new->gu1 = $n->jumlah;
+                $new->ls_gaji1 = $n->ls_gaji3;
+                $new->ls_bj1 = $n->ls_bj3;
+                $new->gu1 = $n->gu3;
                 $new->jumlah = $n->jumlah;
                 $new->sisa = $n->sisa;
                 $new->save();
