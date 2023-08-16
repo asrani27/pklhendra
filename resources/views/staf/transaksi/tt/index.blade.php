@@ -32,6 +32,7 @@
                   <th class="text-center">ID Billing</th>
                   <th class="text-center">NTPN</th>
                   <th class="text-center">Keterangan</th>
+                  <th class="text-center"></th>
                 </tr>
                 @foreach ($rekening as $item2)
                 <tr  style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:10px;">
@@ -50,6 +51,13 @@
                     </td>
                     <td>{{$item2->ntpn}}</td>
                     <td>{{$item2->keterangan}}</td>
+                    <td>
+                      @if ($item2->pajak == 0)
+                        <a href="/staf/transaksi/detail/{{$item2->id}}/tt/print" class="btn btn-sm btn-danger btn-flat" target="_blank"><i class="fa fa-file"></i> PRINT</a>
+                      @else
+                          
+                      @endif
+                      </td>
                 </tr>
                 @endforeach
                 {{-- @foreach ($rekening as $item)

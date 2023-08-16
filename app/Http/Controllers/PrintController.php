@@ -26,6 +26,13 @@ class PrintController extends Controller
         $lain = $penerimaan->where('jenis', 'lain')->first();
         return view('staf.transaksi.spj.print', compact('data', 'id', 'detail', 'penerimaan', 'sp2d', 'pp', 'ppn', 'pph21', 'pph22', 'pph23', 'pph4', 'lain'));
     }
+
+    public function tt($id)
+    {
+        $data = T_bku_rekening_detail::find($id);
+        
+        return view('staf.transaksi.tt.print', compact('data'));
+    }
     public function bku($id)
     {
         $data = T_spj::find($id);

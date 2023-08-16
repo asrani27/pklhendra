@@ -87,7 +87,7 @@ Route::group(['middleware' => ['auth', 'role:staf']], function () {
         Route::post('transaksi/spj/detail/simpan/angka', [StafSPJController::class, 'storeDetail']);
         Route::get('transaksi/spj/detail/delete/{id}', [StafSPJController::class, 'deleteDetail']);
         Route::get('transaksi/spj/tarikdata', [StafSPJController::class, 'tarikData']);
-        
+
         Route::get('transaksi/npd/edit/{id}', [StafNPDController::class, 'edit']);
         Route::post('transaksi/npd/edit/{id}', [StafNPDController::class, 'update']);
 
@@ -107,6 +107,7 @@ Route::group(['middleware' => ['auth', 'role:staf']], function () {
         Route::get('transaksi/npd/print/{id}', [PrintController::class, 'npd']);
         Route::get('transaksi/sptjb/print/{id}', [PrintController::class, 'sptjb']);
         Route::get('transaksi/kuitansi/satu/print/{id}', [PrintController::class, 'kuitansi11']);
+        Route::get('transaksi/detail/{id}/tt/print', [PrintController::class, 'tt']);
 
         Route::get('transaksi/bku', [StafBKUController::class, 'index']);
         Route::get('transaksi/bku/add', [StafBKUController::class, 'create']);
