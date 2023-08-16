@@ -183,6 +183,14 @@ class StafSPJController extends Controller
             Session::flash('success', 'Berhasil Diupdate');
         }
 
+        if ($req->kolom == '13a') {
+
+            $data = T_spj_penerimaan::where('t_spj_id', $req->detail_id)->where('jenis', 'ppn')->first();
+
+            $data->jumlah = $req->angka;
+            $data->save();
+            Session::flash('success', 'Berhasil Diupdate');
+        }
         return back();
     }
     public function detail($id)

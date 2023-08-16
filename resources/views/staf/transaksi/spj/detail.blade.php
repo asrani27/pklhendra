@@ -204,7 +204,7 @@
                   <td style="text-align: right">{{$ppn->gu1}}</td>
                   <td style="text-align: right">{{$ppn->gu2}}</td>
                   <td style="text-align: right">{{$ppn->gu3}}</td>
-                  <td style="text-align: right">{{$ppn->jumlah}}</td>
+                  <td style="text-align: right"><a href="#" class="isiangka" data-id="{{$id}}" data-angka="{{$ppn->gu1}}" data-kolom="13a">{{$ppn->jumlah}}</a></td>
                   <td style="text-align: right"></td>
                 </tr>
                 <tr style="font-size: 10px">
@@ -341,6 +341,8 @@
       </div>
       <!-- /.modal-dialog -->
     </div>
+
+    
 </section>
 
 
