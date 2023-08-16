@@ -16,6 +16,7 @@ class StafSPJController extends Controller
     public function tarikData()
     {
         $dataSebelumnya = T_spj::orderBy('id', 'DESC')->skip(1)->first();
+
         $newData = T_spj::orderBy('id', 'DESC')->first();
 
         if ($dataSebelumnya->detail->count() == 0) {
@@ -28,7 +29,7 @@ class StafSPJController extends Controller
             foreach ($check as $i) {
                 $i->delete();
             }
-
+            //dd($dataSebelumnya->detail);
             foreach ($dataSebelumnya->detail as $n) {
 
                 $new = new T_spj_detail;
