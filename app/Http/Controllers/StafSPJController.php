@@ -37,7 +37,7 @@ class StafSPJController extends Controller
                 $new->ja = $n->ja;
                 $new->ls_gaji1 = $n->ls_gaji2;
                 $new->ls_bj1 = $n->ls_bj2;
-                $new->gu1 = $n->gu2;
+                $new->gu1 = $n->jumlah;
                 $new->jumlah = $n->jumlah;
                 $new->sisa = $n->sisa;
                 $new->save();

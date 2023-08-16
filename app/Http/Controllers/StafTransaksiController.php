@@ -34,7 +34,14 @@ class StafTransaksiController extends Controller
 
         return view('staf.transaksi.spj.detail', compact('data', 'id', 'detail', 'penerimaan', 'sp2d', 'pp', 'ppn', 'pph21', 'pph22', 'pph23', 'pph4', 'lain'));
     }
+    public function rekap($id)
+    {
+        $data = T_spj::find($id);
+        $detail = $data->detail;
+        $penerimaan = $data->penerimaan;
 
+        return view('staf.transaksi.rekap.detail', compact('data', 'id', 'detail'));
+    }
 
     public function bku($id)
     {

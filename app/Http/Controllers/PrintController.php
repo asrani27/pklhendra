@@ -30,8 +30,15 @@ class PrintController extends Controller
     public function tt($id)
     {
         $data = T_bku_rekening_detail::find($id);
-        
+
         return view('staf.transaksi.tt.print', compact('data'));
+    }
+
+    public function rekap($id)
+    {
+        $data = T_bku_rekening_detail::find($id);
+
+        return view('staf.transaksi.rekap.print', compact('data'));
     }
     public function bku($id)
     {

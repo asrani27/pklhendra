@@ -63,6 +63,7 @@ Route::group(['middleware' => ['auth', 'role:staf']], function () {
         Route::get('transaksi/detail/{id}/sptjb', [StafTransaksiController::class, 'sptjb']);
         Route::get('transaksi/detail/{id}/kuitansisatu', [StafTransaksiController::class, 'kuitansisatu']);
         Route::get('transaksi/detail/{id}/tt', [StafTransaksiController::class, 'tt']);
+        Route::get('transaksi/detail/{id}/rekap', [StafTransaksiController::class, 'rekap']);
 
         Route::get('transaksi/detail/{id}/jkn', [StafTransaksiController::class, 'jkn']);
         Route::get('transaksi/detail/{id}/jkn/add', [StafTransaksiController::class, 'add_jkn']);
@@ -108,6 +109,7 @@ Route::group(['middleware' => ['auth', 'role:staf']], function () {
         Route::get('transaksi/sptjb/print/{id}', [PrintController::class, 'sptjb']);
         Route::get('transaksi/kuitansi/satu/print/{id}', [PrintController::class, 'kuitansi11']);
         Route::get('transaksi/detail/{id}/tt/print', [PrintController::class, 'tt']);
+        Route::get('transaksi/detail/{id}/rekap/print', [PrintController::class, 'rekap']);
 
         Route::get('transaksi/bku', [StafBKUController::class, 'index']);
         Route::get('transaksi/bku/add', [StafBKUController::class, 'create']);
